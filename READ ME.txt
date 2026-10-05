@@ -8,3 +8,4 @@ Changes are made in draft.html, then tools\build.ps1 regenerates the public page
 
 To look at the site offline: double-click index.html (public version) or draft.html (working copy).
 img holds the photos, fonts holds the fonts. Keep the folders together.
+
