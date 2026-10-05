@@ -1,0 +1,8 @@
+﻿MACKENZIE WEBSITE - INTERNAL DRAFT (not live)
+
+To look through it: double-click index.html. It opens in your web browser.
+Use the "Computer / Phone" switch in the red bar at the top to see the phone version.
+"To confirm" in the same bar lists the open questions.
+
+Everything is in this folder: index.html, the img folder (photos) and the fonts folder.
+Keep them together. Nothing here is online.
