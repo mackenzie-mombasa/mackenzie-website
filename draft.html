@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-launch="1">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -443,41 +443,64 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 .sv-zone{position:absolute;top:60px;bottom:0;z-index:2;background:none;border:0;cursor:pointer}
 .sv-zone.l{left:0;width:35%}.sv-zone.r{right:0;width:65%}
 </style>
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<style>body{background:var(--paper)}</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2c0 1.3.9 2.5 1 2.7.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
 </svg>
 
+<div class="draftbar">
+  <div class="in">
+    <span class="tag">Internal draft</span>
+    <span class="note">Not live. Nothing here is on mackenziemombasa.com yet.</span>
+    <div class="seg" role="group" aria-label="Preview size">
+      <button type="button" id="v-desktop" aria-pressed="true">Computer</button>
+      <button type="button" id="v-phone" aria-pressed="false">Phone</button>
+    </div>
+    <a class="notes-btn" href="#picker" style="text-decoration:none">Photo picker</a>
+    <button type="button" class="notes-btn" id="notes-btn" aria-expanded="false" aria-controls="notes">To confirm (2)</button>
+  </div>
+</div>
+<div class="notes" id="notes" hidden>
+  <div class="in">
+    <h2>Open questions before this goes live</h2>
+    <ol>
+      
+      
+      <li>Nearby list: anything missing, or anything that shouldn't be there?</li>
+      <li>Before launch: remove this red bar, click "Make public" in Netlify, then point mackenziemombasa.com at it.</li>
+    </ol>
+  </div>
+</div>
+
 <div class="stage" id="stage" data-view="desktop">
 <div class="site" id="site">
 
   <header class="hdr">
     <div class="wrap">
-      <a class="brand" href="./">Mackenzie <span>Mombasa</span></a>
+      <a class="brand" href="#home">Mackenzie <span>Mombasa</span></a>
       <nav class="nav" aria-label="Main">
-        <a href="apartments/">Apartments</a>
-        <a href="amenities/">Amenities</a>
-        <a href="marina/">Marina</a>
-        <a href="#nearby">Location</a>
-        <a href="contact/">Contact</a>
+        <a href="#apartments">Apartments</a>
+        <a href="#living">Amenities</a>
+        <a href="#marina">Marina</a>
+        <a href="#location">Location</a>
+        <a href="#contact">Contact</a>
       </nav>
       <a class="btn btn-wa wa" href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>WhatsApp us</a>
       <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mnav">Menu</button>
     </div>
     <nav class="mnav" id="mnav" aria-label="Main" hidden>
-      <a href="./" aria-current="page">Home</a>
-      <a href="apartments/">Apartments</a>
-      <a href="amenities/">Amenities</a>
-      <a href="marina/">Marina</a>
-      <a href="#nearby">Location</a>
-      <a href="contact/">Contact</a>
+      <a href="#home">Home</a>
+      <a href="#apartments">Apartments</a>
+      <a href="#living">Amenities</a>
+      <a href="#marina">Marina</a>
+      <a href="#location">Location</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main>
+  <!-- ============ HOME ============ -->
   <div class="page" data-page="home">
     <section class="wrap intro">
       <div class="lbl">Tudor Creek · Nyali · Mombasa</div>
@@ -488,7 +511,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
         </div>
         <div class="ctas">
           <a class="btn btn-wa wa" href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Check availability</a>
-          <a class="btn" href="apartments/">See the apartments</a>
+          <a class="btn" href="#apartments">See the apartments</a>
         </div>
       </div>
     </section>
@@ -524,7 +547,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
       <div class="wrap">
         <div class="head split-head">
           <h2>The apartments</h2>
-          <a class="more" href="apartments/">All the details</a>
+          <a class="more" href="#apartments">All the details</a>
         </div>
         <div class="cards">
           <article class="card"><div class="ph"><img src="img/a-glass.jpg" alt="Glass-walled living room up among the trees"></div>
@@ -553,7 +576,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
       <div class="wrap">
         <div class="head split-head">
           <h2>On the estate</h2>
-          <a class="more" href="amenities/">All amenities</a>
+          <a class="more" href="#living">All amenities</a>
         </div>
         <div class="onsite">
           <figure class="os"><div class="ph"><img src="img/z-pool.jpg" alt="The garden pool in the sun, lined with palms" style="object-position:center 72%"><span class="ph-tag">Pool 1</span></div><h3>The garden pool</h3><p>Long enough for proper lengths, under the palms.</p></figure>
@@ -618,7 +641,271 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
       </div>
     </section>
   </div>
-  </main>
+
+<!-- ============ APARTMENTS ============ -->
+  <div class="page" data-page="apartments" hidden>
+    <section class="wrap phead">
+      <div class="lbl">Apartments</div>
+      <h1>Studios to three-bed</h1>
+      <p class="lead">Apartments and cottages, all en-suite, all furnished, all long-term. Each one has its own layout and its own view.</p>
+    </section>
+    <section class="wrap pimg"><img src="img/living.jpg" alt="Sunrise apartment living room" width="1200" height="900"><span class="ph-tag">Living room</span></section>
+    <section class="sec">
+      <div class="wrap">
+        <div class="head"><div class="lbl">In every apartment</div><h2>Arrive with a suitcase</h2></div>
+        <ul class="ticks">
+          <li>Fully furnished, beds and linen included</li>
+          <li>En-suite bathroom to every bedroom</li>
+          <li>Equipped kitchen</li>
+          <li>Ceiling fans and big windows</li>
+          <li>Garden or creek outlook</li>
+          <li>Wi-Fi</li>
+        </ul>
+        <p class="pricing">Pools, gym, security, backup power and water are shared across the estate. <a href="#living">See the amenities</a>.</p>
+      </div>
+    </section>
+    <section class="sec tint">
+      <div class="wrap stack">
+        <div class="split">
+          <div class="ph"><img src="img/lounge.jpg" alt="Sunrise lounge with tall windows onto the water" loading="lazy" width="1200" height="900"><span class="ph-tag">Lounge</span></div>
+          <div class="txt">
+            <div class="lbl">Studio &amp; 1 bed</div>
+            <h2>Light and easy</h2>
+            <p>Our smaller flats suit one person or a couple. Each has its own layout, with the garden or the water outside the window.</p>
+            <div><a class="btn btn-wa wa" data-msg="Hi, I'd like to check availability for a studio or one-bed." href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Check availability</a></div>
+          </div>
+        </div>
+        <div class="split flip">
+          <div class="ph"><img src="img/dining.jpg" alt="Bayview dining room with timber floors" loading="lazy" width="1200" height="900"><span class="ph-tag">Dining room</span></div>
+          <div class="txt">
+            <div class="lbl">2 bed</div>
+            <h2>Room to spread out</h2>
+            <p>Generous living space for couples who work from home, or families. Depending on the flat, a private veranda or a view across the creek.</p>
+            <div><a class="btn btn-wa wa" data-msg="Hi, I'd like to check availability for a two-bedroom." href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Check availability</a></div>
+          </div>
+        </div>
+        <div class="split">
+          <div class="ph"><img src="img/veranda.jpg" alt="Covered veranda among tropical plants" loading="lazy" width="1200" height="900"><span class="ph-tag">Private veranda</span></div>
+          <div class="txt">
+            <div class="lbl">3 bed</div>
+            <h2>The big one</h2>
+            <p>Our most spacious flat, with its own outdoor space. There's only one, so it's worth asking early.</p>
+            <div><a class="btn btn-wa wa" data-msg="Hi, I'd like to check availability for the three-bedroom." href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Check availability</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="sec">
+      <div class="wrap">
+        <div class="head"><div class="lbl">Inside</div><h2>A few of the rooms</h2></div>
+        <div class="gallery g3 land">
+          <figure><img src="img/a-sunliving.jpg" alt="Bright living and dining room with big windows onto the garden" loading="lazy"><span class="ph-tag">Living room</span></figure>
+          <figure><img src="img/a-sunbed.jpg" alt="Bedroom with a four-poster bed and garden view" loading="lazy"><span class="ph-tag">Bedroom</span></figure>
+          <figure><img src="img/a-kitchen.jpg" alt="Long kitchen with timber worktops and windows onto the trees" loading="lazy"><span class="ph-tag">Kitchen</span></figure>
+          <figure><img src="img/i-living2.jpg" alt="Living room with cane sofas and doors open to the veranda" loading="lazy"><span class="ph-tag">Living room</span></figure>
+          <figure><img src="img/i-bed.jpg" alt="Bedroom with a four-poster bed and louvred windows" loading="lazy"><span class="ph-tag">Bedroom</span></figure>
+          <figure><img src="img/a-desk.jpg" alt="Living room with a long desk and louvred windows" loading="lazy"><span class="ph-tag">Living room</span></figure>
+          <figure><img src="img/sofa.jpg" alt="Sitting room with a cane armchair and sofa" loading="lazy"><span class="ph-tag">Sitting room</span></figure>
+          <figure><img src="img/a-bed3.jpg" alt="Bedroom with timber floor, opening onto a veranda" loading="lazy"><span class="ph-tag">Bedroom</span></figure>
+          <figure><img src="img/i-living3.jpg" alt="Long living room with red sofas and a kitchen beyond" loading="lazy"><span class="ph-tag">Living room</span></figure>
+        </div>
+      </div>
+    </section>
+    <section class="sec tint">
+      <div class="wrap">
+        <div class="head"><div class="lbl">From outside</div><h2>Tucked into the garden</h2>
+          <p class="lead">The apartments and cottages are spread through the gardens, built in coral stone and timber, each with its own way in.</p></div>
+        <div class="gallery g3 port">
+          <figure><img src="img/x-stone.jpg" alt="A coral stone residence above flowering shrubs" loading="lazy"><span class="ph-tag">Among the flowers</span></figure>
+          <figure><img src="img/h-residence.jpg" alt="Residences with balconies among palms and bougainvillea" loading="lazy"><span class="ph-tag">Balconies</span></figure>
+          <figure><img src="img/e-treetops.jpg" alt="A residence raised on timber, with an outside staircase" loading="lazy"><span class="ph-tag">Up in the trees</span></figure>
+          <figure><img src="img/e-res3.jpg" alt="A stone residence roofline among palms" loading="lazy"><span class="ph-tag">Coral stone</span></figure>
+          <figure><img src="img/e-door.jpg" alt="Timber front doors under a pergola" loading="lazy"><span class="ph-tag">A front door</span></figure>
+          <figure><img src="img/e-veranda.jpg" alt="A veranda with a round table and white chairs" loading="lazy"><span class="ph-tag">A veranda</span></figure>
+          <figure><img src="img/e-res2.jpg" alt="A stone residence behind a frangipani" loading="lazy"><span class="ph-tag">In the green</span></figure>
+          <figure><img src="img/a-balcony.jpg" alt="View from a balcony over the pool to the creek" loading="lazy"><span class="ph-tag">From a balcony</span></figure>
+          <figure><img src="img/h-cottage.jpg" alt="A cottage with the creek behind it" loading="lazy"><span class="ph-tag">A cottage by the creek</span></figure>
+        </div>
+      </div>
+    </section>
+    <section class="sec tint">
+      <div class="wrap">
+        <div class="head"><div class="lbl">How it works</div><h2>From first message to moving in</h2></div>
+        <ol class="steps">
+          <li><b>Say hello</b><span>Send us a WhatsApp with what you're looking for and when.</span></li>
+          <li><b>We'll get back to you</b><span>With what's available, photos and pricing.</span></li>
+          <li><b>Come for a visit</b><span>We do viewings most days.</span></li>
+          <li><b>Settle in</b><span>Once the details are agreed, the keys are yours.</span></li>
+        </ol>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ MARINA ============ -->
+  <div class="page" data-page="marina" hidden>
+    <section class="wrap phead">
+      <div class="lbl">Marina</div>
+      <h1>Moor your boat at the bottom of the garden</h1>
+    </section>
+    <section class="wrap pimg"><img src="img/marina-hero.jpg" alt="The jetty and pontoon on Tudor Creek on a clear day" style="object-position:center 82%"><span class="ph-tag">The jetty and pontoon</span></section>
+    <section class="sec">
+      <div class="wrap split">
+        <div class="ph"><img src="img/marina.jpg" alt="Pontoon with a small boat moored" loading="lazy" width="1200" height="900"><span class="ph-tag">The pontoon</span></div>
+        <div class="txt">
+          <div class="lbl">Moorings</div>
+          <h2>Sheltered water, a short walk from your door</h2>
+          <p>Our private pontoon sits on a calm stretch of Tudor Creek. Residents can moor here and be out on the water in minutes. Boat owners who live elsewhere can rent a mooring too, so ask us.</p>
+          <ul class="spec">
+            <li><span>Mooring</span><span>Pontoon, up to 30 ft</span></li>
+            <li><span>Storage</span><span>Secure, lockable</span></li>
+            <li><span>Water</span><span>Fresh-water supply</span></li>
+            <li><span>Power</span><span>240 V · 50 Hz</span></li>
+            <li><span>Conditions</span><span>Sheltered creek</span></li>
+            <li><span>Managed</span><span>On site</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="sec tint">
+      <div class="wrap gallery">
+        <figure><img src="img/z-frangi.jpg" alt="A white table and chairs on the terrace at water level, under a frangipani" loading="lazy" style="object-position:center 75%"><span class="ph-tag">Seating on the water</span></figure>
+        <figure><img src="img/deck-lower2.jpg" alt="The waterside terrace under the frangipani, with the creek beyond" loading="lazy" style="object-position:center 70%"><span class="ph-tag">The waterside terrace</span></figure>
+        <figure><img src="img/mar-boat.jpg" alt="A boat at the jetty with the palms of the estate behind" loading="lazy"><span class="ph-tag">Boat at the jetty</span></figure>
+        <figure><img src="img/j-yachts.jpg" alt="A yacht on its mooring at the end of the jetty" loading="lazy" style="object-position:center 75%"><span class="ph-tag">On the mooring</span></figure>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ LIVING HERE ============ -->
+  <div class="page" data-page="living" hidden>
+    <section class="wrap phead">
+      <div class="lbl">Amenities</div>
+      <h1>Everything on the estate</h1>
+      <p class="lead">Two pools, several decks on the water, a gym, a private jetty and decades of garden, all inside one gated compound.</p>
+    </section>
+
+    <section class="sec" style="padding-top:clamp(16px,2cqi,24px)">
+      <div class="wrap">
+        <div class="head"><div class="lbl">Two pools</div><h2>One for lengths, one for lounging</h2>
+          <p class="lead">The garden pool is long and lined with palms. The terrace pool has tables, loungers and frangipani shade.</p></div>
+        <div class="pair">
+          <figure><img src="img/a-pool1b.jpg" alt="The length of the garden pool, lined with palms" loading="lazy" style="object-position:center 70%"><span class="ph-tag">Garden pool</span></figure>
+          <figure><img src="img/y-pool2.jpg" alt="Loungers and a white table by the terrace pool" loading="lazy" style="object-position:center 75%"><span class="ph-tag">Terrace pool</span></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec tint">
+      <div class="wrap">
+        <div class="head"><div class="lbl">Decks and terraces</div><h2>Places to sit by the water</h2>
+          <p class="lead">Decks and terraces along the creek, shared by residents, with tables, shade and the view.</p></div>
+        <div class="quad q3">
+          <figure><img src="img/deck-lower.jpg" alt="A white table on a terrace under a frangipani, beside the creek" loading="lazy" style="object-position:center 75%"></figure>
+          <figure><img src="img/k-sundown2.jpg" alt="A white table on a deck, with the garden and palms behind" loading="lazy" style="object-position:center 70%"></figure>
+          <figure><img src="img/lawn-loungers.jpg" alt="White loungers on the lawn, with the creek and city beyond" loading="lazy" style="object-position:center 80%"></figure>
+          <figure><img src="img/mar-level.jpg" alt="Benches on the jetty platform at water level" loading="lazy"></figure>
+          <figure><img src="img/y-deck2.jpg" alt="White table and chairs on a deck over the creek" loading="lazy" style="object-position:center 75%"></figure>
+          <figure><img src="img/y-table.jpg" alt="A table and chairs in the shade under the creepers" loading="lazy"></figure>
+        </div>
+        </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap stack">
+        <div class="split">
+          <div class="ph"><img src="img/gym-all.jpg" alt="Residents' gym with spin bikes, a weights rack, bench and punch bag" loading="lazy" style="object-position:center 65%"><span class="ph-tag">Residents' gym</span></div>
+          <div class="txt">
+            <div class="lbl">Gym</div>
+            <h2>Train without leaving the estate</h2>
+            <p>Bikes, cardio and weights in a bright room with a timber floor, open to the garden on three sides.</p>
+          </div>
+        </div>
+        <div class="split flip">
+          <div class="ph"><img src="img/x-creek.jpg" alt="The whole jetty and a moored yacht, seen from the garden" loading="lazy" style="object-position:center 60%"><span class="ph-tag">The jetty</span></div>
+          <div class="txt">
+            <div class="lbl">Jetty and marina</div>
+            <h2>A private jetty and boat moorings</h2>
+            <p>A long wooden jetty into the creek, and pontoon moorings for boats up to 30 ft.</p>
+            <div><a class="more" href="#marina">More about the marina</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec estate">
+      <div class="wrap split">
+        <div class="txt">
+          <div class="lbl">Security and services</div>
+          <h2>One gate, guarded round the clock</h2>
+          <p>The whole estate sits inside a single gated compound, with the owners living on site.</p>
+          <ul class="ticks one">
+            <li>Gated compound</li>
+            <li>24-hour security</li>
+            <li>Standby generators, so the power stays on</li>
+            <li>Our own fresh-water supply, all year</li>
+            <li>Wi-Fi</li>
+            <li>Secure covered parking inside the gates</li>
+            <li>Owners and management on site</li>
+          </ul>
+        </div>
+        <div class="duo">
+          <div class="ph"><img src="img/s-gate.jpg" alt="The entrance gate, surrounded by greenery" loading="lazy"><span class="ph-tag">The gate</span></div>
+          <div class="ph"><img src="img/z-parking.jpg" alt="Covered parking under bougainvillea and palms" loading="lazy" style="object-position:center 75%"><span class="ph-tag">Parking</span></div>
+          <div class="ph wide"><img src="img/s-parking2.jpg" alt="The drive and covered parking bays, with bougainvillea over the roof" loading="lazy"><span class="ph-tag">Plenty of space</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <div class="head"><div class="lbl">Around the gardens</div><h2>A garden that's had decades to grow</h2></div>
+        <div class="quad">
+          <figure><img src="img/x-palms.jpg" alt="Tall palms and frangipani in early light" loading="lazy"></figure>
+          <figure><img src="img/j-loungers.jpg" alt="White loungers on the lawn in front of bougainvillea" loading="lazy" style="object-position:center 85%"></figure>
+          <figure><img src="img/y-steps.jpg" alt="Stone steps between flower beds, leading up to white arches" loading="lazy" style="object-position:28% 60%"></figure>
+          <figure><img src="img/y-arch.jpg" alt="A walk under an arch of white bougainvillea, leading to the creek" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<!-- ============ CONTACT ============ -->
+  <div class="page" data-page="contact" hidden>
+    <section class="wrap phead">
+      <div class="lbl">Contact</div>
+      <h1>Come and see it for yourself</h1>
+      <p class="lead">Viewings most days. WhatsApp is the quickest way to reach us.</p>
+    </section>
+    <section class="sec" style="padding-top:clamp(8px,1cqi,16px)">
+      <div class="wrap near2">
+        <div class="gwrap">
+          <div class="gbox" data-google></div>
+          <div class="gmap"><iframe title="Mackenzie Apartments Mombasa on Google Maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.8!2d39.6771775!3d-4.0418875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x184013d9752c7739%3A0x9c9ce9ebe448ec6e!2sMackenzie%20Apartments%20Mombasa!5e0!3m2!1sen!2ske!4v1759650000000!5m2!1sen!2ske" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+        </div>
+        <div class="realmap" data-realmap></div>
+      </div>
+    </section>
+    <section class="sec ruled" id="faq">
+      <div class="wrap">
+        <div class="head"><div class="lbl">Questions</div><h2>Things people usually ask</h2></div>
+        <div class="faq">
+          <details open><summary>How do I find out about pricing?</summary><p>Get in touch on WhatsApp or by email and we'll share availability and pricing.</p></details>
+          <details><summary>Is it really fully furnished?</summary><p>Yes. Furniture, kitchen, beds and linen are all there.</p></details>
+          <details><summary>Can I come and see it first?</summary><p>Yes. Viewings most days. Just send us a WhatsApp and we'll find a time that suits you.</p></details>
+          <details><summary>What about power cuts and water?</summary><p>Standby generators cover the estate, and we have our own fresh-water supply all year.</p></details>
+          <details><summary>Can I keep a boat there?</summary><p>Yes. The pontoon takes boats up to 30 ft. <a class="inl" href="#marina">See the marina</a>.</p></details>
+        </div>
+      </div>
+    </section>
+  </div>
+<div class="page" data-page="picker" hidden>
+    <section class="wrap phead"><div class="lbl">Internal · not part of the site</div><h1>Photo picker</h1>
+      <p class="lead">Numbers 1 to 117 are photos already prepared for the site. Below them, numbers 201 to 747 are every photo from all the downloaded folders. Tell me which goes where by number. Tap a photo or a sheet to see it bigger.</p></section>
+    <section class="wrap"><div class="pick" id="pick"></div></section>
+    <section class="wrap" style="margin-top:40px"><div class="head"><div class="lbl">All folders</div><h2>Everything else, 201 to 747</h2></div><div class="sheets" id="sheets"></div></section>
+    <div style="height:48px"></div>
+  </div>
+</main>
 
   <section class="contact" aria-label="Contact">
     <div class="wrap">
@@ -727,6 +1014,9 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
   var gHTML = '<div class="g">GOOGLE REVIEWS</div><div class="score"><b>4.7</b><span><span class="stars">★★★★★</span>30 reviews</span></div>'+
     '<div class="row"><a class="btn" href="'+GM+'" target="_blank" rel="noopener">Read the reviews</a><a class="btn" href="'+DIR+'" target="_blank" rel="noopener">Get directions</a></div>';
   document.querySelectorAll("[data-google]").forEach(function(el){ el.innerHTML = gHTML; });
+
+  var PICK = ["a-balcony.jpg","a-bath.jpg","a-bath2.jpg","a-bed2.jpg","a-bed3.jpg","a-desk.jpg","a-glass.jpg","a-kitchen.jpg","a-kitchen2.jpg","a-pool1a.jpg","a-pool1b.jpg","a-pool2b.jpg","a-pool2c.jpg","approach.jpg","a-sunbed.jpg","a-sunliving.jpg","bedroom.jpg","boardwalk.jpg","deck.jpg","deck-arch.jpg","deck-lower.jpg","deck-lower2.jpg","dining.jpg","e-door.jpg","e-res1.jpg","e-res2.jpg","e-res3.jpg","e-treetops.jpg","e-veranda.jpg","garden.jpg","g-bougain.jpg","gd-1.jpg","gd-2.jpg","gd-3.jpg","gd-4.jpg","gd-court.jpg","gd-loungers.jpg","g-lawncreek.jpg","g-poolpath.jpg","gym.jpg","gym1.jpg","gym-all.jpg","h-cottage.jpg","h-cottage2.jpg","hero.jpg","house.jpg","h-pool.jpg","h-residence.jpg","i-bed.jpg","i-living2.jpg","i-living3.jpg","j-archdining.jpg","j-arches.jpg","j-bougain.jpg","j-dog.jpg","jetty.jpg","jetty-boats.jpg","j-gym.jpg","j-jettyframe.jpg","j-lawnview.jpg","j-loungers.jpg","j-pool.jpg","j-pooltree.jpg","j-steps.jpg","j-table.jpg","j-veranda.jpg","j-walk.jpg","j-yachts.jpg","j-yachts2.jpg","k-board.jpg","k-sail.jpg","k-sundown.jpg","k-sundown2.jpg","lawn.jpg","lawn-loungers.jpg","living.jpg","lounge.jpg","mar-boat.jpg","marina.jpg","marina-hero.jpg","mar-level.jpg","m-deck.jpg","m-jetty.jpg","m-yacht.jpg","o-courtyard.jpg","o-dusk.jpg","o-dusk2.jpg","o-lawn.jpg","parking.jpg","path.jpg","pool.jpg","p-pool1.jpg","p-pool2.jpg","s-gate.jpg","sofa.jpg","s-parking2.jpg","veranda.jpg","x-bench.jpg","x-creek.jpg","x-palms.jpg","x-pool.jpg","x-stone.jpg","y-arch.jpg","y-arch2.jpg","y-deck.jpg","y-deck2.jpg","y-frangi.jpg","y-jetty.jpg","y-pool2.jpg","y-steps.jpg","y-table.jpg","z-frangi.jpg","z-parking.jpg","z-pool.jpg","z-pool2.jpg","i-view.jpg"];
+  var pickEl = document.getElementById("pick"); if (pickEl) pickEl.innerHTML = PICK.map(function(f,i){ return '<figure><img src="img/'+f+'" alt="Photo '+(i+1)+'" loading="lazy"><b>'+(i+1)+'</b></figure>'; }).join("");
   (function(){ var t = document.querySelector('[data-page="home"] .onsite'); if (!t) return;
     var w = document.createElement("div"); w.className = "car cards-car"; t.parentNode.insertBefore(w, t); w.appendChild(t);
     function btn(cls, label, txt, dir){ var b = document.createElement("button"); b.type = "button"; b.className = "car-btn " + cls; b.setAttribute("aria-label", label); b.innerHTML = txt; b.addEventListener("click", function(){ t.scrollBy({left: dir * t.clientWidth * 0.8, behavior: "smooth"}); }); w.appendChild(b); return b; }
@@ -747,6 +1037,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
     function upd(){ var i = Math.round(t.scrollLeft / Math.max(1, t.clientWidth)); cnt.textContent = (i + 1) + " / " + n; pb.hidden = i <= 0; nb.hidden = i >= n - 1; }
     t.addEventListener("scroll", upd); upd();
   });
+  var SH = ""; for (var si2 = 1; si2 <= 23; si2++){ SH += '<img src="img/more-' + (si2 < 10 ? "0" : "") + si2 + '.jpg" alt="Photo sheet ' + si2 + '" loading="lazy">'; } var shProbe = new Image(); if (!document.getElementById("sheets")) shProbe = {}; shProbe.onload = function(){ document.getElementById("sheets").innerHTML = SH; }; shProbe.onerror = function(){ var s = document.getElementById("sheets"); if (s && s.parentNode) s.parentNode.hidden = true; }; shProbe.src = "img/more-01.jpg";
   /* routing */
   var site = document.getElementById("site"), stage = document.getElementById("stage");
   var pages = Array.prototype.slice.call(document.querySelectorAll(".page"));

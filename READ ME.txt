@@ -1,8 +1,10 @@
-﻿MACKENZIE WEBSITE - INTERNAL DRAFT (not live)
+﻿MACKENZIE APARTMENTS WEBSITE
 
-To look through it: double-click index.html. It opens in your web browser.
-Use the "Computer / Phone" switch in the red bar at the top to see the phone version.
-"To confirm" in the same bar lists the open questions.
+index.html and the folders apartments, amenities, marina, contact are the public pages.
+They are generated: do not edit them by hand.
 
-Everything is in this folder: index.html, the img folder (photos) and the fonts folder.
-Keep them together. Nothing here is online.
+draft.html is the working copy, with the review tools (phone/computer switch, photo picker).
+Changes are made in draft.html, then tools\build.ps1 regenerates the public pages.
+
+To look at the site offline: double-click index.html (public version) or draft.html (working copy).
+img holds the photos, fonts holds the fonts. Keep the folders together.
