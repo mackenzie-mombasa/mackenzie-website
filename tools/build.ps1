@@ -37,7 +37,7 @@ foreach($pg in $pages){
   # public pages are open to search engines (draft.html keeps its noindex)
   $html = [regex]::Replace($html,'<meta name="robots" content="noindex, nofollow">\r?\n?','')
   $html = $html.Replace('href="fonts/fonts.css"','href="'+$p+'fonts/fonts.css"')
-  $html = $html.Replace('</head>','<link rel="icon" href="'+$p+'favicon.svg" type="image/svg+xml">'+"`n"+'<style>body{background:var(--paper)}</style>'+"`n"+'</head>')
+  $html = $html.Replace('</head>','<link rel="icon" href="/favicon.ico" sizes="48x48">'+"`n"+'<link rel="icon" href="/favicon.svg" type="image/svg+xml">'+"`n"+'<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">'+"`n"+'<link rel="apple-touch-icon" href="/apple-touch-icon.png">'+"`n"+'<style>body{background:var(--paper)}</style>'+"`n"+'</head>')
 
   # remove the review tools
   $a = $html.IndexOf('<div class="draftbar">'); $b = $html.IndexOf('<div class="stage"')
