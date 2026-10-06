@@ -34,6 +34,8 @@ foreach($pg in $pages){
   $html = [regex]::Replace($html,'<meta name="description" content="[^"]*">',{ param($x) '<meta name="description" content="'+$pg.desc+'">' })
   $html = [regex]::Replace($html,'<link rel="canonical" href="[^"]*">',{ param($x) '<link rel="canonical" href="'+$site+'/'+$pg.dir+'">' })
   $html = [regex]::Replace($html,'<meta property="og:url" content="[^"]*">',{ param($x) '<meta property="og:url" content="'+$site+'/'+$pg.dir+'">' })
+  # public pages are open to search engines (draft.html keeps its noindex)
+  $html = [regex]::Replace($html,'<meta name="robots" content="noindex, nofollow">\r?\n?','')
   $html = $html.Replace('href="fonts/fonts.css"','href="'+$p+'fonts/fonts.css"')
   $html = $html.Replace('</head>','<link rel="icon" href="'+$p+'favicon.svg" type="image/svg+xml">'+"`n"+'<style>body{background:var(--paper)}</style>'+"`n"+'</head>')
 
