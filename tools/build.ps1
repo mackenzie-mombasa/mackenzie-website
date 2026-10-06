@@ -75,5 +75,5 @@ New-Item -ItemType Directory -Force "$root\gardens" | Out-Null
 $today = (Get-Date).ToString("yyyy-MM-dd")
 $urls = ($pages | ForEach-Object { "  <url><loc>$site/$($_.dir)</loc><lastmod>$today</lastmod></url>" }) -join "`n"
 [IO.File]::WriteAllText("$root\sitemap.xml","<?xml version=`"1.0`" encoding=`"UTF-8`"?>`n<urlset xmlns=`"http://www.sitemaps.org/schemas/sitemap/0.9`">`n$urls`n</urlset>`n",$utf8)
-[IO.File]::WriteAllText("$root\robots.txt","User-agent: *`nAllow: /`n`nSitemap: $site/sitemap.xml`n",$utf8)
+[IO.File]::WriteAllText("$root\robots.txt","User-agent: *`nAllow: /`nDisallow: /tools/`n`nSitemap: $site/sitemap.xml`n",$utf8)
 "built: gardens redirect, 404, favicon, sitemap, robots"
