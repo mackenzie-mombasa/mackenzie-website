@@ -255,10 +255,10 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 .mbar .btn{flex:1}
 /* computer: the WhatsApp bar becomes a floating button, bottom left */
 @container site (min-width:900px){.mbar{height:0;padding:0;border:0;background:none;backdrop-filter:none;align-items:flex-end;pointer-events:none}
-  .mbar .btn{flex:none;margin:0 0 22px 22px;pointer-events:auto;box-shadow:0 8px 24px rgba(22,32,30,.22)}}
-.chips{display:none;list-style:none;margin:0;padding:0;flex-wrap:wrap;gap:8px}
-.chips li{font:500 14px/1 var(--display);padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff}
-@container site (max-width:699px){.intro .ttl .lead span:nth-child(2){display:none}.chips{display:flex}}
+  .mbar .btn{flex:none;margin:0 0 22px 22px;pointer-events:auto;width:52px;height:52px;padding:0;border-radius:50%;justify-content:center;box-shadow:0 6px 18px rgba(22,32,30,.18)}
+  .mbar .btn span{display:none}.mbar .btn .ico{width:26px;height:26px;margin:0}}
+.intro .ttl .lead span.short{display:none}
+@container site (max-width:699px){.intro .ttl .lead span{display:none}.intro .ttl .lead span.short{display:inline}.intro .ctas{display:none}.intro{padding-bottom:6px}}
 .jump{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
 .split[id]{scroll-margin-top:90px}
 .page[hidden]{display:none!important}
@@ -332,6 +332,11 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 .contact h2{font-size:clamp(32px,4.4cqi,56px)}
 .gwrap{display:grid;gap:16px}
 @container site (min-width:820px){.gwrap{grid-template-columns:minmax(260px,340px) 1fr;align-items:stretch}.gwrap .gbox{max-width:none;align-content:center}}
+@container site (max-width:819px){.gwrap{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:10px;align-items:stretch}
+  .gwrap .gbox{max-width:none;justify-self:stretch;padding:14px;gap:10px;align-content:center}
+  .gwrap .gbox .g{font-size:11px}.gwrap .gbox .score{flex-wrap:wrap;gap:4px 8px}.gwrap .gbox .score b{font-size:40px}.gwrap .gbox .stars{font-size:15px}
+  .gwrap .gbox .row .btn{flex:1 1 100%;padding:9px 6px;font-size:13px;justify-content:center;text-align:center}
+  .gwrap .gmap,.gwrap .gmap iframe{min-height:250px}}
 .gmap{border:1px solid var(--line);border-radius:10px;overflow:hidden;min-height:340px;background:#fff}
 .gmap iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
 #sv-body{position:absolute;inset:0;overflow:hidden}
@@ -532,8 +537,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
       <div class="row">
         <div class="ttl">
           <h1>Home, on the creek.</h1>
-          <p class="lead"><span>Waterfront apartments for long-term rent, set in tropical gardens on Tudor Creek, by Nyali Bridge, Mombasa.</span> <span>Studios to three-bed, fully furnished, in a private gated community with two pools, a gym and its own jetty.</span></p>
-          <ul class="chips"><li>Studios to 3-bed</li><li>Fully furnished</li><li>Gated community</li><li>Two pools</li><li>Gym</li><li>Private jetty</li></ul>
+          <p class="lead"><span>Waterfront apartments for long-term rent, set in tropical gardens on Tudor Creek, by Nyali Bridge, Mombasa.</span> <span>Studios to three-bed, fully furnished, in a private gated community with two pools, a gym and its own jetty.</span><span class="short">Waterfront apartments for long-term rent, in tropical gardens by Nyali Bridge, Mombasa.</span></p>
         </div>
         <div class="ctas">
           <a class="btn btn-wa wa" href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Check availability</a>
@@ -679,7 +683,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
     <section class="sec tint" style="padding-top:clamp(28px,4cqi,56px)">
       <div class="wrap stack">
         <div class="split" id="apt-1">
-          <div class="ph"><img src="img/lounge.jpg" alt="Sunrise lounge with tall windows onto the water" loading="lazy" width="1200" height="900"><span class="ph-tag">Lounge</span></div>
+          <div class="ph"><img src="img/lounge.jpg" alt="Sunrise lounge with tall windows onto the water" loading="lazy" width="1200" height="900"></div>
           <div class="txt">
             <div class="lbl">Studio &amp; 1 bed</div>
             <h2>Light and easy</h2>
@@ -688,7 +692,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
           </div>
         </div>
         <div class="split flip" id="apt-2">
-          <div class="ph"><img src="img/dining.jpg" alt="Bayview dining room with timber floors" loading="lazy" width="1200" height="900"><span class="ph-tag">Dining room</span></div>
+          <div class="ph"><img src="img/dining.jpg" alt="Bayview dining room with timber floors" loading="lazy" width="1200" height="900"></div>
           <div class="txt">
             <div class="lbl">2 bed</div>
             <h2>Room to spread out</h2>
@@ -697,7 +701,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
           </div>
         </div>
         <div class="split" id="apt-3">
-          <div class="ph"><img src="img/veranda.jpg" alt="Covered veranda among tropical plants" loading="lazy" width="1200" height="900"><span class="ph-tag">Private veranda</span></div>
+          <div class="ph"><img src="img/veranda.jpg" alt="Covered veranda among tropical plants" loading="lazy" width="1200" height="900"></div>
           <div class="txt">
             <div class="lbl">3 bed</div>
             <h2>The big one</h2>
@@ -707,7 +711,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
         </div>
       </div>
     </section>
-    <section class="wrap pimg" style="margin-top:clamp(40px,6cqi,80px)"><img src="img/living.jpg" alt="Sunrise apartment living room" width="1200" height="900"><span class="ph-tag">Living room</span></section>
+    <section class="wrap pimg" style="margin-top:clamp(40px,6cqi,80px)"><img src="img/living.jpg" alt="Sunrise apartment living room" width="1200" height="900"></section>
     <section class="sec">
       <div class="wrap">
         <div class="head"><div class="lbl">In every apartment</div><h2>Arrive with a suitcase</h2></div>
@@ -726,15 +730,15 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
       <div class="wrap">
         <div class="head"><div class="lbl">Inside</div><h2>A few of the rooms</h2></div>
         <div class="gallery g3 land">
-          <figure><img src="img/a-sunliving.jpg" alt="Bright living and dining room with big windows onto the garden" loading="lazy"><span class="ph-tag">Living room</span></figure>
-          <figure><img src="img/a-sunbed.jpg" alt="Bedroom with a four-poster bed and garden view" loading="lazy"><span class="ph-tag">Bedroom</span></figure>
-          <figure><img src="img/a-kitchen.jpg" alt="Long kitchen with timber worktops and windows onto the trees" loading="lazy"><span class="ph-tag">Kitchen</span></figure>
-          <figure><img src="img/i-living2.jpg" alt="Living room with cane sofas and doors open to the veranda" loading="lazy"><span class="ph-tag">Living room</span></figure>
-          <figure><img src="img/i-bed.jpg" alt="Bedroom with a four-poster bed and louvred windows" loading="lazy"><span class="ph-tag">Bedroom</span></figure>
-          <figure><img src="img/a-desk.jpg" alt="Living room with a long desk and louvred windows" loading="lazy"><span class="ph-tag">Living room</span></figure>
-          <figure><img src="img/sofa.jpg" alt="Sitting room with a cane armchair and sofa" loading="lazy"><span class="ph-tag">Sitting room</span></figure>
-          <figure><img src="img/a-bed3.jpg" alt="Bedroom with timber floor, opening onto a veranda" loading="lazy"><span class="ph-tag">Bedroom</span></figure>
-          <figure><img src="img/i-living3.jpg" alt="Long living room with red sofas and a kitchen beyond" loading="lazy"><span class="ph-tag">Living room</span></figure>
+          <figure><img src="img/a-sunliving.jpg" alt="Bright living and dining room with big windows onto the garden" loading="lazy"></figure>
+          <figure><img src="img/a-sunbed.jpg" alt="Bedroom with a four-poster bed and garden view" loading="lazy"></figure>
+          <figure><img src="img/a-kitchen.jpg" alt="Long kitchen with timber worktops and windows onto the trees" loading="lazy"></figure>
+          <figure><img src="img/i-living2.jpg" alt="Living room with cane sofas and doors open to the veranda" loading="lazy"></figure>
+          <figure><img src="img/i-bed.jpg" alt="Bedroom with a four-poster bed and louvred windows" loading="lazy"></figure>
+          <figure><img src="img/a-desk.jpg" alt="Living room with a long desk and louvred windows" loading="lazy"></figure>
+          <figure><img src="img/sofa.jpg" alt="Sitting room with a cane armchair and sofa" loading="lazy"></figure>
+          <figure><img src="img/a-bed3.jpg" alt="Bedroom with timber floor, opening onto a veranda" loading="lazy"></figure>
+          <figure><img src="img/i-living3.jpg" alt="Long living room with red sofas and a kitchen beyond" loading="lazy"></figure>
         </div>
       </div>
     </section>
@@ -743,15 +747,15 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
         <div class="head"><div class="lbl">From outside</div><h2>Tucked into the garden</h2>
           <p class="lead">The apartments and cottages are spread through the gardens, built in coral stone and timber, each with its own way in.</p></div>
         <div class="gallery g3 port">
-          <figure><img src="img/x-stone.jpg" alt="A coral stone residence above flowering shrubs" loading="lazy"><span class="ph-tag">Among the flowers</span></figure>
-          <figure><img src="img/h-residence.jpg" alt="Residences with balconies among palms and bougainvillea" loading="lazy"><span class="ph-tag">Balconies</span></figure>
-          <figure><img src="img/e-treetops.jpg" alt="A residence raised on timber, with an outside staircase" loading="lazy"><span class="ph-tag">Up in the trees</span></figure>
-          <figure><img src="img/e-res3.jpg" alt="A stone residence roofline among palms" loading="lazy"><span class="ph-tag">Coral stone</span></figure>
-          <figure><img src="img/e-door.jpg" alt="Timber front doors under a pergola" loading="lazy"><span class="ph-tag">A front door</span></figure>
-          <figure><img src="img/e-veranda.jpg" alt="A veranda with a round table and white chairs" loading="lazy"><span class="ph-tag">A veranda</span></figure>
-          <figure><img src="img/e-res2.jpg" alt="A stone residence behind a frangipani" loading="lazy"><span class="ph-tag">In the green</span></figure>
-          <figure><img src="img/a-balcony.jpg" alt="View from a balcony over the pool to the creek" loading="lazy"><span class="ph-tag">From a balcony</span></figure>
-          <figure><img src="img/h-cottage.jpg" alt="A cottage with the creek behind it" loading="lazy"><span class="ph-tag">A cottage by the creek</span></figure>
+          <figure><img src="img/x-stone.jpg" alt="A coral stone residence above flowering shrubs" loading="lazy"></figure>
+          <figure><img src="img/h-residence.jpg" alt="Residences with balconies among palms and bougainvillea" loading="lazy"></figure>
+          <figure><img src="img/e-treetops.jpg" alt="A residence raised on timber, with an outside staircase" loading="lazy"></figure>
+          <figure><img src="img/e-res3.jpg" alt="A stone residence roofline among palms" loading="lazy"></figure>
+          <figure><img src="img/e-door.jpg" alt="Timber front doors under a pergola" loading="lazy"></figure>
+          <figure><img src="img/e-veranda.jpg" alt="A veranda with a round table and white chairs" loading="lazy"></figure>
+          <figure><img src="img/e-res2.jpg" alt="A stone residence behind a frangipani" loading="lazy"></figure>
+          <figure><img src="img/a-balcony.jpg" alt="View from a balcony over the pool to the creek" loading="lazy"></figure>
+          <figure><img src="img/h-cottage.jpg" alt="A cottage with the creek behind it" loading="lazy"></figure>
         </div>
       </div>
     </section>
@@ -955,7 +959,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
       <span><a href="https://www.instagram.com/mackenzieapartmentsmombasa/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.google.com/maps/place/Mackenzie+Apartments+Mombasa/@-4.0418875,39.6771775,17z" target="_blank" rel="noopener">Google Maps</a></span>
     </div>
   </footer>
-  <div class="mbar"><a class="btn btn-wa wa" href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>WhatsApp us · +254 700 932 020</a></div>
+  <div class="mbar"><a class="btn btn-wa wa" href="#" title="WhatsApp us" aria-label="WhatsApp us on +254 700 932 020" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg><span>WhatsApp us · +254 700 932 020</span></a></div>
 </div>
 </div>
 

@@ -254,10 +254,10 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 .mbar .btn{flex:1}
 /* computer: the WhatsApp bar becomes a floating button, bottom left */
 @container site (min-width:900px){.mbar{height:0;padding:0;border:0;background:none;backdrop-filter:none;align-items:flex-end;pointer-events:none}
-  .mbar .btn{flex:none;margin:0 0 22px 22px;pointer-events:auto;box-shadow:0 8px 24px rgba(22,32,30,.22)}}
-.chips{display:none;list-style:none;margin:0;padding:0;flex-wrap:wrap;gap:8px}
-.chips li{font:500 14px/1 var(--display);padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff}
-@container site (max-width:699px){.intro .ttl .lead span:nth-child(2){display:none}.chips{display:flex}}
+  .mbar .btn{flex:none;margin:0 0 22px 22px;pointer-events:auto;width:52px;height:52px;padding:0;border-radius:50%;justify-content:center;box-shadow:0 6px 18px rgba(22,32,30,.18)}
+  .mbar .btn span{display:none}.mbar .btn .ico{width:26px;height:26px;margin:0}}
+.intro .ttl .lead span.short{display:none}
+@container site (max-width:699px){.intro .ttl .lead span{display:none}.intro .ttl .lead span.short{display:inline}.intro .ctas{display:none}.intro{padding-bottom:6px}}
 .jump{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
 .split[id]{scroll-margin-top:90px}
 .page[hidden]{display:none!important}
@@ -331,6 +331,11 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 .contact h2{font-size:clamp(32px,4.4cqi,56px)}
 .gwrap{display:grid;gap:16px}
 @container site (min-width:820px){.gwrap{grid-template-columns:minmax(260px,340px) 1fr;align-items:stretch}.gwrap .gbox{max-width:none;align-content:center}}
+@container site (max-width:819px){.gwrap{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:10px;align-items:stretch}
+  .gwrap .gbox{max-width:none;justify-self:stretch;padding:14px;gap:10px;align-content:center}
+  .gwrap .gbox .g{font-size:11px}.gwrap .gbox .score{flex-wrap:wrap;gap:4px 8px}.gwrap .gbox .score b{font-size:40px}.gwrap .gbox .stars{font-size:15px}
+  .gwrap .gbox .row .btn{flex:1 1 100%;padding:9px 6px;font-size:13px;justify-content:center;text-align:center}
+  .gwrap .gmap,.gwrap .gmap iframe{min-height:250px}}
 .gmap{border:1px solid var(--line);border-radius:10px;overflow:hidden;min-height:340px;background:#fff}
 .gmap iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
 #sv-body{position:absolute;inset:0;overflow:hidden}
@@ -554,7 +559,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
       <span><a href="https://www.instagram.com/mackenzieapartmentsmombasa/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.google.com/maps/place/Mackenzie+Apartments+Mombasa/@-4.0418875,39.6771775,17z" target="_blank" rel="noopener">Google Maps</a></span>
     </div>
   </footer>
-  <div class="mbar"><a class="btn btn-wa wa" href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>WhatsApp us · +254 700 932 020</a></div>
+  <div class="mbar"><a class="btn btn-wa wa" href="#" title="WhatsApp us" aria-label="WhatsApp us on +254 700 932 020" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg><span>WhatsApp us · +254 700 932 020</span></a></div>
 </div>
 </div>
 
