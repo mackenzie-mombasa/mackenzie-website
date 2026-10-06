@@ -77,7 +77,12 @@ p{margin:0}
 .nav a:hover{color:var(--ink)}
 .nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--bloom)}
 .hdr .btn-wa{display:none;padding:10px 16px}
-.menu-btn{margin-left:auto;background:none;border:1.5px solid var(--ink);border-radius:999px;color:var(--ink);font:600 14px/1 var(--display);padding:9px 14px;cursor:pointer}
+.menu-btn{margin-left:auto;background:none;border:0;width:44px;height:44px;margin-right:-10px;display:grid;place-items:center;cursor:pointer}
+.bars,.bars::before,.bars::after{display:block;width:24px;height:2px;border-radius:2px;background:var(--ink);transition:transform .2s,top .2s}
+.bars{position:relative}.bars::before,.bars::after{content:"";position:absolute;left:0}.bars::before{top:-7px}.bars::after{top:7px}
+.menu-btn[aria-expanded="true"] .bars{background:transparent}
+.menu-btn[aria-expanded="true"] .bars::before{top:0;transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] .bars::after{top:0;transform:rotate(-45deg)}
 .mnav{border-top:1px solid var(--line);background:var(--paper)}
 .mnav a{display:block;padding:15px var(--g);border-bottom:1px solid var(--line);text-decoration:none;font:600 26px/1.1 var(--display);letter-spacing:-.02em}
 .mnav a[aria-current="page"]{color:var(--bloom)}
@@ -247,7 +252,14 @@ blockquote{margin:0;font:italic 400 clamp(25px,3cqi,34px)/1.3 var(--body)}
 footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:14px;color:var(--muted)}
 .mbar{position:sticky;bottom:0;z-index:30;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px var(--g) calc(10px + env(safe-area-inset-bottom,0px));display:flex}
 .mbar .btn{flex:1}
-@container site (min-width:900px){.mbar{display:none}}
+/* computer: the WhatsApp bar becomes a floating button, bottom left */
+@container site (min-width:900px){.mbar{height:0;padding:0;border:0;background:none;backdrop-filter:none;align-items:flex-end;pointer-events:none}
+  .mbar .btn{flex:none;margin:0 0 22px 22px;pointer-events:auto;box-shadow:0 8px 24px rgba(22,32,30,.22)}}
+.chips{display:none;list-style:none;margin:0;padding:0;flex-wrap:wrap;gap:8px}
+.chips li{font:500 14px/1 var(--display);padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff}
+@container site (max-width:699px){.intro .ttl .lead span:nth-child(2){display:none}.chips{display:flex}}
+.jump{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.split[id]{scroll-margin-top:90px}
 .page[hidden]{display:none!important}
 /* ---------- draft 5: layout fixes, real map, fewer stories ---------- */
 .mosaic-hero figure{min-height:0;overflow:hidden;border-radius:6px}
@@ -470,6 +482,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
     <div class="wrap">
       <a class="brand" href="../">Mackenzie <span>Mombasa</span></a>
       <nav class="nav" aria-label="Main">
+        <a href="../">Home</a>
         <a href="./" aria-current="page">Apartments</a>
         <a href="../amenities/">Amenities</a>
         <a href="../marina/">Marina</a>
@@ -477,7 +490,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
         <a href="../contact/">Contact</a>
       </nav>
       <a class="btn btn-wa wa" href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>WhatsApp us</a>
-      <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mnav">Menu</button>
+      <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><span class="bars" aria-hidden="true"></span></button>
     </div>
     <nav class="mnav" id="mnav" aria-label="Main" hidden>
       <a href="../">Home</a>
@@ -495,8 +508,40 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
       <div class="lbl">Apartments</div>
       <h1>Studios to three-bed</h1>
       <p class="lead">Apartments and cottages, all en-suite, all furnished, all long-term. Each one has its own layout and its own view.</p>
+      <div class="jump"><button type="button" class="btn" data-jump="apt-1">Studio &amp; 1 bed</button><button type="button" class="btn" data-jump="apt-2">2 bed</button><button type="button" class="btn" data-jump="apt-3">3 bed</button></div>
     </section>
-    <section class="wrap pimg"><img src="../img/living.jpg" alt="Sunrise apartment living room" width="1200" height="900"><span class="ph-tag">Living room</span></section>
+    <section class="sec tint" style="padding-top:clamp(28px,4cqi,56px)">
+      <div class="wrap stack">
+        <div class="split" id="apt-1">
+          <div class="ph"><img src="../img/lounge.jpg" alt="Sunrise lounge with tall windows onto the water" loading="lazy" width="1200" height="900"><span class="ph-tag">Lounge</span></div>
+          <div class="txt">
+            <div class="lbl">Studio &amp; 1 bed</div>
+            <h2>Light and easy</h2>
+            <p>Our smaller flats suit one person or a couple. Each has its own layout, with the garden or the water outside the window.</p>
+            <div><a class="btn btn-wa wa" data-msg="Hi, I'd like to check availability for a studio or one-bed." href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Check availability</a></div>
+          </div>
+        </div>
+        <div class="split flip" id="apt-2">
+          <div class="ph"><img src="../img/dining.jpg" alt="Bayview dining room with timber floors" loading="lazy" width="1200" height="900"><span class="ph-tag">Dining room</span></div>
+          <div class="txt">
+            <div class="lbl">2 bed</div>
+            <h2>Room to spread out</h2>
+            <p>Generous living space for couples who work from home, or families. Depending on the flat, a private veranda or a view across the creek.</p>
+            <div><a class="btn btn-wa wa" data-msg="Hi, I'd like to check availability for a two-bedroom." href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Check availability</a></div>
+          </div>
+        </div>
+        <div class="split" id="apt-3">
+          <div class="ph"><img src="../img/veranda.jpg" alt="Covered veranda among tropical plants" loading="lazy" width="1200" height="900"><span class="ph-tag">Private veranda</span></div>
+          <div class="txt">
+            <div class="lbl">3 bed</div>
+            <h2>The big one</h2>
+            <p>Our most spacious flat, with its own outdoor space. There's only one, so it's worth asking early.</p>
+            <div><a class="btn btn-wa wa" data-msg="Hi, I'd like to check availability for the three-bedroom." href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Check availability</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="wrap pimg" style="margin-top:clamp(40px,6cqi,80px)"><img src="../img/living.jpg" alt="Sunrise apartment living room" width="1200" height="900"><span class="ph-tag">Living room</span></section>
     <section class="sec">
       <div class="wrap">
         <div class="head"><div class="lbl">In every apartment</div><h2>Arrive with a suitcase</h2></div>
@@ -509,37 +554,6 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
           <li>Wi-Fi</li>
         </ul>
         <p class="pricing">Pools, gym, security, backup power and water are shared across the property. <a href="../amenities/">See the amenities</a>.</p>
-      </div>
-    </section>
-    <section class="sec tint">
-      <div class="wrap stack">
-        <div class="split">
-          <div class="ph"><img src="../img/lounge.jpg" alt="Sunrise lounge with tall windows onto the water" loading="lazy" width="1200" height="900"><span class="ph-tag">Lounge</span></div>
-          <div class="txt">
-            <div class="lbl">Studio &amp; 1 bed</div>
-            <h2>Light and easy</h2>
-            <p>Our smaller flats suit one person or a couple. Each has its own layout, with the garden or the water outside the window.</p>
-            <div><a class="btn btn-wa wa" data-msg="Hi, I'd like to check availability for a studio or one-bed." href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Check availability</a></div>
-          </div>
-        </div>
-        <div class="split flip">
-          <div class="ph"><img src="../img/dining.jpg" alt="Bayview dining room with timber floors" loading="lazy" width="1200" height="900"><span class="ph-tag">Dining room</span></div>
-          <div class="txt">
-            <div class="lbl">2 bed</div>
-            <h2>Room to spread out</h2>
-            <p>Generous living space for couples who work from home, or families. Depending on the flat, a private veranda or a view across the creek.</p>
-            <div><a class="btn btn-wa wa" data-msg="Hi, I'd like to check availability for a two-bedroom." href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Check availability</a></div>
-          </div>
-        </div>
-        <div class="split">
-          <div class="ph"><img src="../img/veranda.jpg" alt="Covered veranda among tropical plants" loading="lazy" width="1200" height="900"><span class="ph-tag">Private veranda</span></div>
-          <div class="txt">
-            <div class="lbl">3 bed</div>
-            <h2>The big one</h2>
-            <p>Our most spacious flat, with its own outdoor space. There's only one, so it's worth asking early.</p>
-            <div><a class="btn btn-wa wa" data-msg="Hi, I'd like to check availability for the three-bedroom." href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Check availability</a></div>
-          </div>
-        </div>
       </div>
     </section>
     <section class="sec">
@@ -754,6 +768,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
     if (stage.getAttribute("data-view") === "phone") site.scrollTop = 0; else window.scrollTo(0,0);
   }
   window.addEventListener("hashchange", show); show();
+  document.querySelectorAll("[data-jump]").forEach(function(b){ b.addEventListener("click", function(){ var el = document.getElementById(b.getAttribute("data-jump")); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }); });
   menuBtn.addEventListener("click", function(){ var o = mnav.hidden; mnav.hidden = !o; menuBtn.setAttribute("aria-expanded", String(o)); });
 
   /* draft chrome */

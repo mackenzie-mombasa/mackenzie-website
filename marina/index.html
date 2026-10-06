@@ -77,7 +77,12 @@ p{margin:0}
 .nav a:hover{color:var(--ink)}
 .nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--bloom)}
 .hdr .btn-wa{display:none;padding:10px 16px}
-.menu-btn{margin-left:auto;background:none;border:1.5px solid var(--ink);border-radius:999px;color:var(--ink);font:600 14px/1 var(--display);padding:9px 14px;cursor:pointer}
+.menu-btn{margin-left:auto;background:none;border:0;width:44px;height:44px;margin-right:-10px;display:grid;place-items:center;cursor:pointer}
+.bars,.bars::before,.bars::after{display:block;width:24px;height:2px;border-radius:2px;background:var(--ink);transition:transform .2s,top .2s}
+.bars{position:relative}.bars::before,.bars::after{content:"";position:absolute;left:0}.bars::before{top:-7px}.bars::after{top:7px}
+.menu-btn[aria-expanded="true"] .bars{background:transparent}
+.menu-btn[aria-expanded="true"] .bars::before{top:0;transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] .bars::after{top:0;transform:rotate(-45deg)}
 .mnav{border-top:1px solid var(--line);background:var(--paper)}
 .mnav a{display:block;padding:15px var(--g);border-bottom:1px solid var(--line);text-decoration:none;font:600 26px/1.1 var(--display);letter-spacing:-.02em}
 .mnav a[aria-current="page"]{color:var(--bloom)}
@@ -247,7 +252,14 @@ blockquote{margin:0;font:italic 400 clamp(25px,3cqi,34px)/1.3 var(--body)}
 footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;font-size:14px;color:var(--muted)}
 .mbar{position:sticky;bottom:0;z-index:30;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(8px);border-top:1px solid var(--line);padding:10px var(--g) calc(10px + env(safe-area-inset-bottom,0px));display:flex}
 .mbar .btn{flex:1}
-@container site (min-width:900px){.mbar{display:none}}
+/* computer: the WhatsApp bar becomes a floating button, bottom left */
+@container site (min-width:900px){.mbar{height:0;padding:0;border:0;background:none;backdrop-filter:none;align-items:flex-end;pointer-events:none}
+  .mbar .btn{flex:none;margin:0 0 22px 22px;pointer-events:auto;box-shadow:0 8px 24px rgba(22,32,30,.22)}}
+.chips{display:none;list-style:none;margin:0;padding:0;flex-wrap:wrap;gap:8px}
+.chips li{font:500 14px/1 var(--display);padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff}
+@container site (max-width:699px){.intro .ttl .lead span:nth-child(2){display:none}.chips{display:flex}}
+.jump{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.split[id]{scroll-margin-top:90px}
 .page[hidden]{display:none!important}
 /* ---------- draft 5: layout fixes, real map, fewer stories ---------- */
 .mosaic-hero figure{min-height:0;overflow:hidden;border-radius:6px}
@@ -470,6 +482,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
     <div class="wrap">
       <a class="brand" href="../">Mackenzie <span>Mombasa</span></a>
       <nav class="nav" aria-label="Main">
+        <a href="../">Home</a>
         <a href="../apartments/">Apartments</a>
         <a href="../amenities/">Amenities</a>
         <a href="./" aria-current="page">Marina</a>
@@ -477,7 +490,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
         <a href="../contact/">Contact</a>
       </nav>
       <a class="btn btn-wa wa" href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>WhatsApp us</a>
-      <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mnav">Menu</button>
+      <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><span class="bars" aria-hidden="true"></span></button>
     </div>
     <nav class="mnav" id="mnav" aria-label="Main" hidden>
       <a href="../">Home</a>
@@ -690,6 +703,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
     if (stage.getAttribute("data-view") === "phone") site.scrollTop = 0; else window.scrollTo(0,0);
   }
   window.addEventListener("hashchange", show); show();
+  document.querySelectorAll("[data-jump]").forEach(function(b){ b.addEventListener("click", function(){ var el = document.getElementById(b.getAttribute("data-jump")); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }); });
   menuBtn.addEventListener("click", function(){ var o = mnav.hidden; mnav.hidden = !o; menuBtn.setAttribute("aria-expanded", String(o)); });
 
   /* draft chrome */
