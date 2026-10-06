@@ -1024,9 +1024,11 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
     ul.addEventListener("click", function(e){
       var li = e.target.closest("li"); if (!li) return;
       var i = Array.prototype.indexOf.call(ul.children, li), map = ul.parentNode.querySelector(".realmap");
-      ul.querySelectorAll("li.on").forEach(function(o){ o.classList.remove("on"); }); li.classList.add("on");
-      if (!map) return;
-      map.querySelectorAll("g.on").forEach(function(o){ o.classList.remove("on"); });
+      var was = li.classList.contains("on");
+      ul.querySelectorAll("li.on").forEach(function(o){ o.classList.remove("on"); });
+      if (map) map.querySelectorAll("g.on").forEach(function(o){ o.classList.remove("on"); });
+      if (was || !map) return;
+      li.classList.add("on");
       var g = map.querySelector('g[data-pin="'+i+'"]'); if (g){ g.classList.add("on"); g.parentNode.insertBefore(g, g.parentNode.querySelector("g[data-pin] ~ circle")); }
       var sc = map.querySelector(".scroll");
       if (sc.scrollWidth > sc.clientWidth + 4) sc.scrollTo({ left: sc.scrollWidth * (mx(NEAR[i][4]) / MW) - sc.clientWidth / 2, behavior: "smooth" });
