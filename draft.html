@@ -534,6 +534,17 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 .watch-link b{font:600 16px/1 var(--display);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1.5px;text-underline-offset:5px}
 .watch-link:hover b{text-decoration-color:var(--bloom)}
 .watch-link small{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+/* floating 'watch the film' bubble, bottom right of the homepage */
+.bubble{position:fixed;right:16px;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;gap:0;padding:0;border:0;background:none;cursor:pointer;transition:opacity .3s,transform .3s}
+.bubble[hidden]{display:none}
+.bubble.away{opacity:0;transform:translateY(12px);pointer-events:none}
+.bubble .bc{position:relative;width:62px;height:62px;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:0 6px 20px rgba(22,32,30,.3);flex:none;display:block}
+.bubble .bc img{width:100%;height:100%;object-fit:cover;display:block}
+.bubble .bc i{position:absolute;inset:0;display:grid;place-items:center;background:rgba(22,32,30,.25);color:#fff;font-style:normal;font-size:17px;padding-left:3px}
+.bubble .bl{background:#fff;color:var(--ink);font:600 13.5px/1 var(--display);padding:9px 20px 9px 14px;border-radius:999px 0 0 999px;margin-right:-14px;box-shadow:0 6px 20px rgba(22,32,30,.18);white-space:nowrap}
+.bubble:hover .bc{transform:scale(1.05);transition:transform .2s}
+@media (min-width:900px){.bubble{right:24px;bottom:24px}.bubble .bc{width:70px;height:70px}}
+@media (prefers-reduced-motion:no-preference){.bubble .bc::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid #fff;animation:bub 2.6s ease-out 1.5s 3}@keyframes bub{from{transform:scale(1);opacity:.9}to{transform:scale(1.35);opacity:0}}}
 </style>
 </head>
 <body>
@@ -600,7 +611,6 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
         <div class="ttl">
           <h1>Home, on the creek.</h1>
           <p class="lead">Waterfront apartments for long-term rent, in tropical gardens by Nyali Bridge, Mombasa.</p>
-          <button type="button" class="watch-link" data-jump="film" data-play><span class="pl" aria-hidden="true">&#9654;</span><b>Watch the film</b><small>58 sec</small></button>
         </div>
         <div class="ctas">
           <a class="btn btn-wa wa" href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Check availability</a>
@@ -706,6 +716,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
       </div>
     </section>
 
+    <button type="button" class="bubble" id="film-bubble" data-jump="film" data-play aria-label="Watch the film, 58 seconds"><span class="bl">Watch the film</span><span class="bc"><img src="img/video-thumb.jpg" alt="" width="80" height="80"><i aria-hidden="true">&#9654;</i></span></button>
     <section class="sec vid" id="film" style="padding-block:clamp(28px,4cqi,56px)">
       <div class="wrap">
         <div class="head"><div class="lbl">Video</div><h2>Take a look around</h2></div>
@@ -1201,6 +1212,10 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
   /* carousel photos beyond the first three load once the page itself has finished */
   function loadDeferred(){ document.querySelectorAll("img[data-src]").forEach(function(im){ im.src = im.getAttribute("data-src"); im.removeAttribute("data-src"); }); }
   if (document.readyState === "complete") loadDeferred(); else window.addEventListener("load", loadDeferred);
+  (function(){ var bub = document.getElementById("film-bubble"), film = document.getElementById("film"); if (!bub || !film) return;
+    var vid = film.querySelector("video"); if (vid) vid.addEventListener("play", function(){ bub.hidden = true; });
+    if ("IntersectionObserver" in window){ new IntersectionObserver(function(es){ bub.classList.toggle("away", es[0].isIntersecting); }, {threshold: 0.25}).observe(film); }
+  })();
   document.querySelectorAll("[data-play]").forEach(function(b){ b.addEventListener("click", function(){ var v = document.querySelector("#film video"); if (v){ try { v.play(); } catch(e){} } }); });
   document.querySelectorAll("[data-jump]").forEach(function(b){ b.addEventListener("click", function(){ var el = document.getElementById(b.getAttribute("data-jump")); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }); });
   menuBtn.addEventListener("click", function(){ var o = mnav.hidden; mnav.hidden = !o; menuBtn.setAttribute("aria-expanded", String(o)); });
