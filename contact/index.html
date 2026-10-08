@@ -16,7 +16,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ApartmentComplex","name":"Mackenzie Apartments Mombasa","description":"Furnished waterfront apartments for long-term rent on Tudor Creek, by Nyali Bridge, Mombasa. Studios to three-bed, all en-suite.","url":"https://www.mackenziemombasa.com/","image":"https://www.mackenziemombasa.com/img/hero.jpg","telephone":"+254700932020","email":"dempoffice@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Ras Kisauni Road, Nyali Bridge","addressLocality":"Mombasa","addressRegion":"Mombasa County","addressCountry":"KE"},"geo":{"@type":"GeoCoordinates","latitude":-4.0418875,"longitude":39.6771775},"sameAs":["https://www.instagram.com/mackenzieapartmentsmombasa/","https://www.facebook.com/Mackenzieapartmentsmombasa"],"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Swimming pools","value":true},{"@type":"LocationFeatureSpecification","name":"Gym","value":true},{"@type":"LocationFeatureSpecification","name":"Private jetty and boat moorings","value":true},{"@type":"LocationFeatureSpecification","name":"24-hour security","value":true},{"@type":"LocationFeatureSpecification","name":"Standby generators","value":true},{"@type":"LocationFeatureSpecification","name":"Covered parking","value":true},{"@type":"LocationFeatureSpecification","name":"Wi-Fi","value":true},{"@type":"LocationFeatureSpecification","name":"Air conditioning","value":true},{"@type":"LocationFeatureSpecification","name":"Fully furnished","value":true}]}
+{"@context":"https://schema.org","@type":"ApartmentComplex","name":"Mackenzie Apartments Mombasa","description":"Furnished waterfront apartments for long-term rent on Tudor Creek, by Nyali Bridge, Mombasa. Studios to three-bed, all en-suite.","url":"https://www.mackenziemombasa.com/","image":"https://www.mackenziemombasa.com/img/m27.jpg","telephone":"+254700932020","email":"dempoffice@gmail.com","address":{"@type":"PostalAddress","streetAddress":"Ras Kisauni Road, Nyali Bridge","addressLocality":"Mombasa","addressRegion":"Mombasa County","addressCountry":"KE"},"geo":{"@type":"GeoCoordinates","latitude":-4.0418875,"longitude":39.6771775},"sameAs":["https://www.instagram.com/mackenzieapartmentsmombasa/","https://www.facebook.com/Mackenzieapartmentsmombasa"],"amenityFeature":[{"@type":"LocationFeatureSpecification","name":"Swimming pools","value":true},{"@type":"LocationFeatureSpecification","name":"Gym","value":true},{"@type":"LocationFeatureSpecification","name":"Private jetty and boat moorings","value":true},{"@type":"LocationFeatureSpecification","name":"24-hour security","value":true},{"@type":"LocationFeatureSpecification","name":"Standby generators","value":true},{"@type":"LocationFeatureSpecification","name":"Covered parking","value":true},{"@type":"LocationFeatureSpecification","name":"Wi-Fi","value":true},{"@type":"LocationFeatureSpecification","name":"Air conditioning","value":true},{"@type":"LocationFeatureSpecification","name":"Fully furnished","value":true}]}
 </script>
 <style>html,body{margin:0}[hidden]{display:none!important}</style>
 <link rel="stylesheet" href="../fonts/fonts.css">
@@ -708,6 +708,9 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
     if (stage.getAttribute("data-view") === "phone") site.scrollTop = 0; else window.scrollTo(0,0);
   }
   window.addEventListener("hashchange", show); show();
+  /* carousel photos beyond the first three load once the page itself has finished */
+  function loadDeferred(){ document.querySelectorAll("img[data-src]").forEach(function(im){ im.src = im.getAttribute("data-src"); im.removeAttribute("data-src"); }); }
+  if (document.readyState === "complete") loadDeferred(); else window.addEventListener("load", loadDeferred);
   document.querySelectorAll("[data-jump]").forEach(function(b){ b.addEventListener("click", function(){ var el = document.getElementById(b.getAttribute("data-jump")); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }); });
   menuBtn.addEventListener("click", function(){ var o = mnav.hidden; mnav.hidden = !o; menuBtn.setAttribute("aria-expanded", String(o)); });
 
@@ -724,7 +727,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
   var lb = document.getElementById("lb"), lbImg = document.getElementById("lb-img"), lbCap = document.getElementById("lb-cap"), lbCount = document.getElementById("lb-count");
   var list = [], idx = 0;
   function capOf(im){ var t = im.parentElement.querySelector(".ph-tag, figcaption"); return t ? t.textContent : im.alt; }
-  function render(){ var im = list[idx]; lbImg.src = im.currentSrc || im.src; lbImg.alt = im.alt; lbCap.textContent = capOf(im); lbCount.textContent = (idx+1) + " / " + list.length; }
+  function render(){ var im = list[idx]; lbImg.src = im.getAttribute("data-full") || im.currentSrc || im.src; lbImg.alt = im.alt; lbCap.textContent = capOf(im); lbCount.textContent = (idx+1) + " / " + list.length; }
   site.addEventListener("click", function(e){
     var img = e.target.closest("img"); if (!img || img.closest("a,button") || !img.closest(".page")) return;
     list = Array.prototype.slice.call(img.closest(".page").querySelectorAll("img")).filter(function(i){ return !i.closest("button"); });
@@ -737,53 +740,43 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
   /* stories */
   var S = {
     apartments:{name:"Apartments", slides:[
-      {img:"h-residence.jpg", t:"The residences", c:"Set among palms and bougainvillea."},
-      {img:"x-stone.jpg", t:"The residences", c:"Coral stone, tucked into the garden."},
-      {img:"living.jpg", t:"Living room", c:" Big windows onto the garden and pool."},
-      {img:"lounge.jpg", t:"Lounge", c:"The lounge, looking out to the water."},
-      {img:"dining.jpg", t:"Dining room", c:"Dining room with a wall of windows."},
-      {img:"bedroom.jpg", t:"Bedroom", c:" Four-poster, fan, creek out the window."},
-      {img:"sofa.jpg", t:"Sitting room", c:"Cane chairs and a sofa for the evenings."},
-      {img:"veranda.jpg", t:"Private veranda", c:"Doors open straight into the green."}
+      {img:"m16.jpg", t:"Living room", c:"Sofas, a fan overhead and the veranda next door."},
+      {img:"m14.jpg", t:"Living and dining", c:"One long room, open to the garden."},
+      {img:"m23.jpg", t:"Dining table", c:"Room for six."},
+      {img:"m22.jpg", t:"Kitchen", c:"Equipped and ready to cook in."},
+      {img:"m10.jpg", t:"Bedroom", c:"Twin beds and a wall of windows."},
+      {img:"m19.jpg", t:"Bedroom", c:"Four-poster, with the creek outside."},
+      {img:"m20.jpg", t:"Balcony", c:"Through the palms to the water."}
     ]},
     pools:{name:"Pools & gym", slides:[
-      {img:"x-pool.jpg", t:"Pool 1 · garden pool", c:"Long enough for proper lengths."},
-      {img:"z-pool.jpg", t:"Pool 1 · garden pool", c:"Midday, blue sky, nobody about."},
-      {img:"pool.jpg", t:"Pool 1 · garden pool", c:"Under the palms, quiet most of the day."},
-      {img:"y-pool2.jpg", t:"Pool 2 · terrace pool", c:"Loungers and frangipani shade."},
-      {img:"z-pool2.jpg", t:"Pool 2 · terrace pool", c:"A table by the water."},
-      {img:"j-pooltree.jpg", t:"Pool 2 · terrace pool", c:"Late morning, before the heat."},
-      {img:"gym1.jpg", t:"Residents' gym", c:"Bikes, cardio and weights."},
-      {img:"j-gym.jpg", t:"Residents' gym", c:"Open to the garden on three sides."}
+      {img:"m36.jpg", t:"Pool 2 · terrace pool", c:"Loungers and frangipani shade."},
+      {img:"m33.jpg", t:"Pool 2 · terrace pool", c:"A table by the water."},
+      {img:"m39.jpg", t:"Pool 2 · terrace pool", c:"Late morning, before the heat."},
+      {img:"m7.jpg", t:"Pool 2 · from above", c:"Tucked into the bougainvillea."},
+      {img:"m8.jpg", t:"Pool 1 · garden pool", c:"Long enough for proper lengths."},
+      {img:"z-pool.jpg", t:"Pool 1 · garden pool", c:"Under the palms, quiet most of the day."},
+      {img:"m46.jpg", t:"Residents' gym", c:"Bikes, cardio and weights."},
+      {img:"m48.jpg", t:"Residents' gym", c:"Open to the garden on three sides."}
     ]},
     gardens:{name:"Gardens", slides:[
-      {img:"garden.jpg", t:"The gardens", c:"Flame trees, palms and a lot of shade."},
-      {img:"g-bougain.jpg", t:"Bougainvillea", c:"Out by the terrace pool."},
-      {img:"j-loungers.jpg", t:"The lawn", c:"Loungers in front of the bougainvillea."},
-      {img:"x-palms.jpg", t:"Palms and frangipani", c:"Early light above the pool."},
-      {img:"x-bench.jpg", t:"A quiet corner", c:"A bench under the big tree."},
-      {img:"y-arch2.jpg", t:"Bougainvillea walk", c:"The boardwalk down to the creek."},
-      {img:"y-steps.jpg", t:"Garden steps", c:"Flower beds on both sides."},
-      {img:"y-frangi.jpg", t:"Frangipani", c:"In flower above the beach."},
-      {img:"z-frangi.jpg", t:"Under the frangipani", c:"A table looking out over the creek."},
-      {img:"g-poolpath.jpg", t:"Garden path", c:"Past the pool, down towards the water."},
-      {img:"o-courtyard.jpg", t:"The courtyard", c:"Midday, in the shade."},
-      {img:"j-steps.jpg", t:"Garden steps", c:"Brick paths between the apartments."},
-      {img:"g-lawncreek.jpg", t:"Lawn on the creek", c:"Open grass, straight out over the creek."},
-      {img:"o-lawn.jpg", t:"First light", c:"The creek from the top of the garden."},
+      {img:"m57.jpg", t:"The gardens", c:"Crotons, ginger lilies and a lot of shade."},
+      {img:"m32.jpg", t:"Garden steps", c:"Flower beds on both sides."},
+      {img:"m59.jpg", t:"Palms and lawn", c:"The creek just behind."},
+      {img:"m43.jpg", t:"Garden path", c:"Down towards the water."},
+      {img:"m62.jpg", t:"Towards the creek", c:"Every path ends at the water."},
+      {img:"m64.jpg", t:"The lawn", c:"Loungers in the sun."},
+      {img:"m17.jpg", t:"From above", c:"Lawn, shade sails and the pool."},
+      {img:"m63.jpg", t:"The view", c:"The creek from the edge of the garden."},
       {img:"o-dusk2.jpg", t:"Dusk", c:"Around six, the lamps go on."}
     ]},
     marina:{name:"Marina", slides:[
-      {img:"x-creek.jpg", t:"The jetty", c:"Seen from the garden, over the flowers."},
-      {img:"j-yachts.jpg", t:"At the jetty", c:"A yacht on the mooring, early morning."},
-      {img:"m-jetty.jpg", t:"The jetty", c:"The best seat on the creek, boat or no boat."},
-      {img:"m-yacht.jpg", t:"Pontoon moorings", c:"Boats up to 30 ft."},
-      {img:"marina.jpg", t:"The pontoon", c:"Sheltered water on Tudor Creek."},
-      {img:"y-deck2.jpg", t:"Sundowner deck", c:"Right over the water."},
-      {img:"y-jetty.jpg", t:"From above", c:"The jetty and pontoon on a clear day."},
-      {img:"y-table.jpg", t:"A table in the shade", c:"Under the creepers, by the water."},
-      {img:"j-dog.jpg", t:"Morning rounds", c:"Someone always checks the jetty."},
-      {img:"approach.jpg", t:"From the water", c:"Coming home by boat."}
+      {img:"m1.jpg", t:"The jetty", c:"Seen from the garden."},
+      {img:"m2.jpg", t:"Tudor Creek", c:"Sheltered water, a few minutes from the open sea."},
+      {img:"m74.jpg", t:"The jetty", c:"The best seat on the creek, boat or no boat."},
+      {img:"m26.jpg", t:"Pontoon moorings", c:"Boats up to 30 ft."},
+      {img:"m15.jpg", t:"From above", c:"The jetty and pontoon on a clear day."},
+      {img:"m52.jpg", t:"Deck over the water", c:"Right on the creek."},
+      {img:"m77.jpg", t:"A table in the shade", c:"Looking out over the jetty."}
     ]}
   };
   var ORDER = ["apartments","pools","gardens","marina"];
