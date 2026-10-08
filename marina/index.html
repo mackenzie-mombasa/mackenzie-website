@@ -547,6 +547,11 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 /* compact bubble: round still with a small badge */
 .bubble{flex-direction:column}
 .bubble .bl{margin:-11px 0 0;padding:4px 9px;border-radius:999px;background:var(--bloom);color:#fff;font:500 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;box-shadow:0 2px 8px rgba(22,32,30,.25);position:relative;z-index:1}
+/* apartments: the size is the title; the phrase under it is the smaller line */
+.card .size{font:700 28px/1.1 var(--display);letter-spacing:-.02em;text-transform:none;color:var(--ink)}
+.card h3{font:600 16px/1.3 var(--display);letter-spacing:0;color:var(--bloom)}
+.split[id^="apt-"] .lbl{font:800 clamp(30px,3.6cqi,44px)/1.05 var(--display);letter-spacing:-.02em;text-transform:none;color:var(--ink)}
+.split[id^="apt-"] h2{font:600 clamp(17px,1.8cqi,20px)/1.3 var(--display);letter-spacing:0;color:var(--bloom)}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -570,7 +575,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
         <a href="../apartments/">Apartments</a>
         <a href="../amenities/">Amenities</a>
         <a href="./" aria-current="page">Marina</a>
-        <a href="../#nearby">Location</a>
+        <a href="../location/">Location</a>
         <a href="../contact/">Contact</a>
       </nav>
       <a class="btn btn-wa wa" href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>WhatsApp us</a>
@@ -581,7 +586,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
       <a href="../apartments/">Apartments</a>
       <a href="../amenities/">Amenities</a>
       <a href="./" aria-current="page">Marina</a>
-      <a href="../#nearby">Location</a>
+      <a href="../location/">Location</a>
       <a href="../contact/">Contact</a>
     </nav>
   </header>
@@ -785,10 +790,10 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
   function show(){
     if (LAUNCH){ mnav.hidden = true; menuBtn.setAttribute("aria-expanded","false"); centerMaps(); return; }
     var h = (location.hash || "").replace("#",""), target = h, anchor = null;
-    if (h === "faq"){ target = "contact"; anchor = "faq"; } if (h === "location"){ target = "home"; anchor = "nearby"; } if (h === "gardens"){ target = "living"; }
+    if (h === "faq"){ target = "contact"; anchor = "faq"; } if (h === "gardens"){ target = "living"; }
     if (names.indexOf(target) < 0) target = "home";
     pages.forEach(function(p){ p.hidden = p.getAttribute("data-page") !== target; });
-    var TITLES = {home:"Furnished Apartments for Long-Term Rent in Nyali, Mombasa | Mackenzie Apartments", apartments:"Studio, 1, 2 and 3 Bedroom Furnished Apartments in Mombasa | Mackenzie Apartments", living:"Pools, Gym, Jetty and 24-Hour Security | Mackenzie Apartments Mombasa", marina:"Private Jetty and Boat Moorings on Tudor Creek, Mombasa | Mackenzie Apartments", contact:"Contact and Viewings | Mackenzie Apartments Mombasa", picker:"Photo picker (internal)"};
+    var TITLES = {home:"Furnished Apartments for Long-Term Rent in Nyali, Mombasa | Mackenzie Apartments", apartments:"Studio, 1, 2 and 3 Bedroom Furnished Apartments in Mombasa | Mackenzie Apartments", living:"Pools, Gym, Jetty and 24-Hour Security | Mackenzie Apartments Mombasa", marina:"Private Jetty and Boat Moorings on Tudor Creek, Mombasa | Mackenzie Apartments", contact:"Contact and Viewings | Mackenzie Apartments Mombasa", location:"Location: By Nyali Bridge, Mombasa | Mackenzie Apartments", picker:"Photo picker (internal)"};
     document.title = TITLES[target] || TITLES.home;
     document.querySelectorAll(".nav a, .mnav a").forEach(function(a){
       if (a.getAttribute("href") === "#" + target) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");

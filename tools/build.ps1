@@ -12,9 +12,10 @@ $pages = @(
   @{ key="apartments"; dir="apartments/"; title="Studio, 1, 2 and 3 Bedroom Furnished Apartments in Mombasa | Mackenzie Apartments";       desc="Studio, one, two and three-bedroom furnished apartments for long-term rent in Nyali, Mombasa. All en-suite, with air conditioning, equipped kitchens, Wi-Fi and garden or creek views." },
   @{ key="living";     dir="amenities/";  title="Pools, Gym, Jetty and 24-Hour Security | Mackenzie Apartments Mombasa";                    desc="Two swimming pools, a residents' gym, decks on the water, a private jetty, tropical gardens, covered parking and 24-hour security at Mackenzie Apartments, Mombasa." },
   @{ key="marina";     dir="marina/";     title="Private Jetty and Boat Moorings on Tudor Creek, Mombasa | Mackenzie Apartments";            desc="A private jetty and pontoon moorings for boats up to 30 ft on a sheltered stretch of Tudor Creek, Mombasa. For residents and visiting boat owners." },
+  @{ key="location";   dir="location/";   title="Location: By Nyali Bridge, Mombasa | Mackenzie Apartments";                                desc="Mackenzie Apartments is on Ras Kisauni Road, by Nyali Bridge, Mombasa: minutes from China Square and Nyali Cinemax, and 10 to 15 minutes by car from the Old Town, hospitals, schools and Nyali Beach." },
   @{ key="contact";    dir="contact/";    title="Contact and Viewings | Mackenzie Apartments Mombasa";                                       desc="Contact Mackenzie Apartments Mombasa on WhatsApp +254 700 932 020 or by email to arrange a viewing. Ras Kisauni Road, by Nyali Bridge, Mombasa." }
 )
-$route = @{ home=""; apartments="apartments/"; living="amenities/"; gardens="amenities/"; marina="marina/"; contact="contact/"; location="#nearby"; faq="contact/#faq" }
+$route = @{ home=""; apartments="apartments/"; living="amenities/"; gardens="amenities/"; marina="marina/"; contact="contact/"; location="location/"; faq="contact/#faq" }
 
 # split the page blocks out of the draft
 $blocks = @{}

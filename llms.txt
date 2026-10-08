@@ -19,4 +19,5 @@
 - [Apartments](https://www.mackenziemombasa.com/apartments/): studio, 1, 2 and 3 bedroom apartments and what is included
 - [Amenities](https://www.mackenziemombasa.com/amenities/): pools, gym, decks, jetty, gardens, security and parking
 - [Marina](https://www.mackenziemombasa.com/marina/): private jetty and boat moorings on Tudor Creek
+- [Location](https://www.mackenziemombasa.com/location/): where it is, a map and drive times to nearby places
 - [Contact](https://www.mackenziemombasa.com/contact/): how to get in touch, map, frequently asked questions
