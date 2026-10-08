@@ -505,10 +505,15 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 .jump .btn:hover{border-color:var(--ink)}
 /* phone: the text comes before its photo */
 @container site (max-width:819px){.split.txt-first>.txt{order:-1}}
-/* small 'watch the video' tag on the top photos */
-.watch{position:absolute;top:12px;left:12px;z-index:3;display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 12px;border:0;border-radius:999px;background:rgba(246,247,243,.94);color:var(--ink);font:600 14px/1 var(--display);cursor:pointer;box-shadow:0 2px 10px rgba(22,32,30,.18)}
-.watch span{display:grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--bloom);color:#fff;font-size:9px;padding-left:2px}
-.watch:hover{background:#fff}
+/* 'watch the film' tag on the top photos: a round still from the film with a play mark */
+.watch{position:absolute;top:12px;left:12px;z-index:3;display:inline-flex;align-items:center;gap:10px;padding:5px 16px 5px 5px;border:0;border-radius:999px;background:rgba(246,247,243,.96);color:var(--ink);cursor:pointer;box-shadow:0 4px 16px rgba(22,32,30,.22);text-align:left;transition:transform .2s}
+.watch:hover{transform:scale(1.03);background:#fff}
+.watch .th{position:relative;width:42px;height:42px;border-radius:50%;overflow:hidden;flex:none;display:block}
+.watch .th img{width:100%;height:100%;object-fit:cover;display:block}
+.watch .th i{position:absolute;inset:0;display:grid;place-items:center;background:rgba(22,32,30,.28);color:#fff;font-style:normal;font-size:13px;padding-left:2px}
+.watch .tx{display:grid;gap:2px}
+.watch .tx b{font:700 14.5px/1 var(--display);letter-spacing:-.01em}
+.watch .tx small{font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 #film{scroll-margin-top:70px}
 /* nearby places: compact cards at every width (tablet 4 across, computer 6 across, phone slides sideways) */
 @container site (min-width:700px){
@@ -576,7 +581,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
     </section>
 
     <section class="wrap">
-      <div class="car"><button type="button" class="watch" data-jump="film" data-play><span aria-hidden="true">&#9654;</span>Watch the video</button><div class="car-track" id="car-track">
+      <div class="car"><button type="button" class="watch" data-jump="film" data-play aria-label="Watch the film, 58 seconds"><span class="th" aria-hidden="true"><img src="img/video-thumb.jpg" alt="" width="80" height="80"><i>&#9654;</i></span><span class="tx"><b>Watch the film</b><small>58 seconds</small></span></button><div class="car-track" id="car-track">
           <figure><img src="img/m27-m.jpg" data-full="img/m27.jpg" fetchpriority="high" alt="The lawn table at the top of the garden, looking across Tudor Creek" width="1600" height="1067"><span class="ph-tag">Tudor Creek, from the garden</span></figure>
           <figure><img src="img/m26-m.jpg" data-full="img/m26.jpg" alt="The jetty and pontoon from the air, with a yacht moored" width="1600" height="900"><span class="ph-tag">The jetty, from the air</span></figure>
           <figure><img src="img/m20-m.jpg" data-full="img/m20.jpg" alt="Looking out from the apartment to a private balcony, palms and the creek" width="1600" height="1067"><span class="ph-tag">Inside · out to the balcony</span></figure>
