@@ -503,6 +503,8 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 .jump::before{content:"Jump to";flex:none;font:500 11.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:6px}
 .jump .btn{flex:none;padding:7px 13px;font-size:14px;font-weight:500;border-width:1px;border-color:var(--line);background:#fff;white-space:nowrap}
 .jump .btn:hover{border-color:var(--ink)}
+/* phone: the text comes before its photo */
+@container site (max-width:819px){.split.txt-first>.txt{order:-1}}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">

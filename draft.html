@@ -504,6 +504,8 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 .jump::before{content:"Jump to";flex:none;font:500 11.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:6px}
 .jump .btn{flex:none;padding:7px 13px;font-size:14px;font-weight:500;border-width:1px;border-color:var(--line);background:#fff;white-space:nowrap}
 .jump .btn:hover{border-color:var(--ink)}
+/* phone: the text comes before its photo */
+@container site (max-width:819px){.split.txt-first>.txt{order:-1}}
 </style>
 </head>
 <body>
@@ -820,8 +822,8 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
       <h1>Moor your boat at the bottom of the garden</h1>
     </section>
     <section class="wrap pimg"><img src="img/m1-xl.jpg" srcset="img/m1.jpg 1600w, img/m1-xl.jpg 2400w" sizes="(min-width:1300px) 1144px, 94vw" data-full="img/m1-xl.jpg" alt="The wooden jetty running out into Tudor Creek, with a yacht moored at the end" width="2400" height="1600"><span class="ph-tag">The jetty and pontoon</span></section>
-    <section class="sec">
-      <div class="wrap split">
+    <section class="sec" style="padding-top:clamp(24px,5cqi,80px)">
+      <div class="wrap split txt-first">
         <div class="ph"><img src="img/m15-s.jpg" data-full="img/m15.jpg" alt="The jetty and pontoon from directly above" loading="lazy" width="1600" height="900"><span class="ph-tag">The pontoon, from above</span></div>
         <div class="txt">
           <div class="lbl">Moorings</div>
