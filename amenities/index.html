@@ -497,6 +497,12 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 @container site (max-width:559px){.ticks.one li{padding:10px 0}}
 .film{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:8px;background:#16201E}
 [data-page="living"] section[id]{scroll-margin-top:76px}
+/* jump links: one slim row that slides sideways if it runs out of room */
+.jump{flex-wrap:nowrap;gap:6px;margin-top:2px;overflow-x:auto;scrollbar-width:none;align-items:center}
+.jump::-webkit-scrollbar{display:none}
+.jump::before{content:"Jump to";flex:none;font:500 11.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+.jump .btn{flex:none;padding:7px 13px;font-size:14px;font-weight:500;border-width:1px;border-color:var(--line);background:#fff;white-space:nowrap}
+.jump .btn:hover{border-color:var(--ink)}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -542,7 +548,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
       <div class="lbl">Amenities</div>
       <h1>Everything on site</h1>
       <p class="lead">Two pools, several decks by the water, a gym, a private jetty and decades of garden, all inside a private gated community.</p>
-      <div class="jump"><button type="button" class="btn" data-jump="am-pools">Pools</button><button type="button" class="btn" data-jump="am-security">Security &amp; services</button><button type="button" class="btn" data-jump="am-gym">Gym</button><button type="button" class="btn" data-jump="am-decks">Decks</button><button type="button" class="btn" data-jump="am-gardens">Gardens</button><button type="button" class="btn" data-jump="am-jetty">Jetty &amp; marina</button></div>
+      <div class="jump"><button type="button" class="btn" data-jump="am-pools">Pools</button><button type="button" class="btn" data-jump="am-security">Security</button><button type="button" class="btn" data-jump="am-gym">Gym</button><button type="button" class="btn" data-jump="am-decks">Decks</button><button type="button" class="btn" data-jump="am-gardens">Gardens</button><button type="button" class="btn" data-jump="am-jetty">Jetty</button></div>
     </section>
 
     <section class="sec" id="am-pools" style="padding-top:clamp(16px,2cqi,24px)">
