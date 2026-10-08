@@ -479,6 +479,13 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 .gallery.g3.port img{aspect-ratio:4/5}
 .pimg img{height:auto;aspect-ratio:3/2}
 .duo img{aspect-ratio:3/4}.duo .wide img{aspect-ratio:16/9}
+/* highlights viewer: photo fills the card like an Instagram story, caption in white over a soft shade */
+#sv-body .sv-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sv-card{background:#16201E}
+.sv-card::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(transparent,rgba(0,0,0,.62));z-index:1;pointer-events:none}
+.sv-cap{background:none;padding:0 6px;bottom:22px;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.55)}
+.sv-cap b{color:#fff;opacity:.9}
+.sv-cap span{font-size:17px}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -566,19 +573,19 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
           <a class="more" href="apartments/">All the details</a>
         </div>
         <div class="cards">
-          <article class="card"><div class="ph"><img src="img/a-glass.jpg" alt="Glass-walled living room up among the trees"></div>
+          <article class="card"><div class="ph"><img src="img/a-glass2-s.jpg" data-full="img/a-glass2.jpg" alt="Glass-walled living room up among the trees"></div>
             <div class="size">Studio &amp; 1 bed</div>
             <h3>Light and easy</h3>
             <p>For one person or a couple. Garden right outside.</p>
             <a class="more wa" data-msg="Hi, I'd like to check availability for a studio or one-bed." href="#" target="_blank" rel="noopener">Check availability</a>
           </article>
-          <article class="card"><div class="ph"><img src="img/m12-s.jpg" data-full="img/m12.jpg" alt="Twin bedroom with louvred wardrobes"></div>
+          <article class="card"><div class="ph"><img src="img/m23-s.jpg" data-full="img/m23.jpg" alt="Dining table and sitting area in a bright living room"></div>
             <div class="size">2 bed</div>
             <h3>Room to spread out</h3>
             <p>A veranda or a creek view, depending on the flat.</p>
             <a class="more wa" data-msg="Hi, I'd like to check availability for a two-bedroom." href="#" target="_blank" rel="noopener">Check availability</a>
           </article>
-          <article class="card"><div class="ph"><img src="img/i-living5.jpg" alt="Living room with sliding doors open to a veranda in the trees"></div>
+          <article class="card"><div class="ph"><img src="img/i-living5b-s.jpg" data-full="img/i-living5b.jpg" alt="Living room with sliding doors open to a veranda in the trees"></div>
             <div class="size">3 bed · only one</div>
             <h3>The big one</h3>
             <p>Our most spacious flat, with its own outdoor space.</p>
@@ -595,7 +602,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
           <a class="more" href="amenities/">All amenities</a>
         </div>
         <div class="onsite">
-          <figure class="os"><div class="ph"><img src="img/p-pool1-s.jpg" data-full="img/p-pool1.jpg" alt="The garden pool in the sun, lined with palms"><span class="ph-tag">Pool 1</span></div><h3>The garden pool</h3><p>Long enough for proper lengths, under the palms.</p></figure>
+          <figure class="os"><div class="ph"><img src="img/a-pool1b-s.jpg" data-full="img/a-pool1b.jpg" alt="The length of the garden pool, lined with palms"><span class="ph-tag">Pool 1</span></div><h3>The garden pool</h3><p>Long enough for proper lengths, under the palms.</p></figure>
           <figure class="os"><div class="ph"><img src="img/m38-s.jpg" data-full="img/m38.jpg" alt="The terrace pool, with a white table in the shade"><span class="ph-tag">Pool 2</span></div><h3>The terrace pool</h3><p>Tables, loungers and frangipani shade.</p></figure>
           <figure class="os"><div class="ph"><img src="img/m46-s.jpg" data-full="img/m46.jpg" alt="Residents' gym with spin bikes and a punch bag, open to the garden" width="1600" height="1067"><span class="ph-tag">Gym</span></div><h3>The residents' gym</h3><p>Bikes, cardio and weights, open to the garden.</p></figure>
           <figure class="os"><div class="ph"><img src="img/m74-s.jpg" data-full="img/m74.jpg" alt="Steps down to the wooden jetty, leading out into the creek"><span class="ph-tag">Marina</span></div><h3>The jetty and marina</h3><p>Pontoon moorings up to 30 ft, at the bottom of the garden.</p></figure>
@@ -622,7 +629,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
         <div class="more-photos">
           <div class="lbl">More photos</div>
           <div class="hl" role="list" aria-label="Photo stories">
-            <button type="button" role="listitem" data-story="apartments"><span class="ring"><img src="img/a-sunliving.jpg" alt=""></span>Apartments</button>
+            <button type="button" role="listitem" data-story="apartments"><span class="ring"><img src="img/m20-s.jpg" alt=""></span>Apartments</button>
             <button type="button" role="listitem" data-story="pools"><span class="ring"><img src="img/m39-s.jpg" data-full="img/m39.jpg" alt=""></span>Pools &amp; gym</button>
             <button type="button" role="listitem" data-story="gardens"><span class="ring"><img src="img/m32-s.jpg" data-full="img/m32.jpg" alt=""></span>Gardens</button>
             <button type="button" role="listitem" data-story="marina"><span class="ring"><img src="img/m75-s.jpg" data-full="img/m75.jpg" alt=""></span>Marina</button>
@@ -783,13 +790,13 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
   var gHTML = '<div class="g">GOOGLE REVIEWS</div><div class="score"><b>4.7</b><span><span class="stars">★★★★★</span>30 reviews</span></div>'+
     '<div class="row"><a class="btn" href="'+GM+'" target="_blank" rel="noopener">Read the reviews</a><a class="btn" href="'+DIR+'" target="_blank" rel="noopener">Get directions</a></div>';
   document.querySelectorAll("[data-google]").forEach(function(el){ el.innerHTML = gHTML; });
-  (function(){ var t = document.querySelector('[data-page="home"] .onsite'); if (!t) return;
+  document.querySelectorAll('[data-page="home"] .onsite, [data-page="home"] .cards').forEach(function(t){
     var w = document.createElement("div"); w.className = "car cards-car"; t.parentNode.insertBefore(w, t); w.appendChild(t);
     function btn(cls, label, txt, dir){ var b = document.createElement("button"); b.type = "button"; b.className = "car-btn " + cls; b.setAttribute("aria-label", label); b.innerHTML = txt; b.addEventListener("click", function(){ t.scrollBy({left: dir * t.clientWidth * 0.8, behavior: "smooth"}); }); w.appendChild(b); return b; }
     var p = btn("prev", "Previous", "&#8592;", -1), n = btn("next", "More", "&#8594;", 1);
     function upd(){ p.hidden = t.scrollLeft < 8; n.hidden = t.scrollLeft + t.clientWidth > t.scrollWidth - 8; }
-    t.addEventListener("scroll", upd); window.addEventListener("load", upd); window.addEventListener("hashchange", function(){ setTimeout(upd, 50); }); upd();
-  })();
+    t.addEventListener("scroll", upd); window.addEventListener("load", upd); window.addEventListener("resize", upd); window.addEventListener("hashchange", function(){ setTimeout(upd, 50); }); upd();
+  });
   var carT = document.getElementById("car-track"), carP = document.getElementById("car-prev"), carN = document.getElementById("car-next");
   if (carT){ function carUpd(){ carP.hidden = carT.scrollLeft < 8; carN.hidden = carT.scrollLeft + carT.clientWidth > carT.scrollWidth - 8; }
   carP.addEventListener("click", function(){ carT.scrollBy({left: -carT.clientWidth * 0.8, behavior: "smooth"}); });
@@ -857,41 +864,41 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
   /* stories */
   var S = {
     apartments:{name:"Apartments", slides:[
-      {img:"m23.jpg", t:"Living and dining", c:"Room for six at the table."},
-      {img:"m22.jpg", t:"Kitchen", c:"Equipped and ready to cook in."},
-      {img:"m10.jpg", t:"Bedroom", c:"Twin beds and a wall of windows."},
-      {img:"m19.jpg", t:"Bedroom", c:"Four-poster, with the creek outside."},
-      {img:"m20.jpg", t:"Balcony", c:"Through the palms to the water."}
+      {img:"m23.jpg", p:50, t:"Living and dining", c:"Room for six at the table."},
+      {img:"m22.jpg", p:45, t:"Kitchen", c:"Equipped and ready to cook in."},
+      {img:"m10.jpg", p:58, t:"Bedroom", c:"Twin beds and a wall of windows."},
+      {img:"m19.jpg", p:45, t:"Bedroom", c:"Four-poster, with the creek outside."},
+      {img:"m20.jpg", p:50, t:"Balcony", c:"Through the palms to the water."}
     ]},
     pools:{name:"Pools & gym", slides:[
-      {img:"m36.jpg", t:"Pool 2 · terrace pool", c:"Loungers and frangipani shade."},
-      {img:"m33.jpg", t:"Pool 2 · terrace pool", c:"A table by the water."},
-      {img:"m39.jpg", t:"Pool 2 · terrace pool", c:"Late morning, before the heat."},
-      {img:"m7.jpg", t:"Pool 2 · from above", c:"Tucked into the bougainvillea."},
-      {img:"m8.jpg", t:"Pool 1 · garden pool", c:"Long enough for proper lengths."},
+      {img:"m36.jpg", p:55, t:"Pool 2 · terrace pool", c:"Loungers and frangipani shade."},
+      {img:"m33.jpg", p:36, t:"Pool 2 · terrace pool", c:"A table by the water."},
+      {img:"m39.jpg", p:55, t:"Pool 2 · terrace pool", c:"Late morning, before the heat."},
+      {img:"m7.jpg", p:45, t:"Pool 2 · from above", c:"Tucked into the bougainvillea."},
+      {img:"m8.jpg", p:55, t:"Pool 1 · garden pool", c:"Long enough for proper lengths."},
       {img:"z-pool.jpg", t:"Pool 1 · garden pool", c:"Under the palms, quiet most of the day."},
-      {img:"m46.jpg", t:"Residents' gym", c:"Bikes, cardio and weights."},
-      {img:"m48.jpg", t:"Residents' gym", c:"Open to the garden on three sides."}
+      {img:"m46.jpg", p:62, t:"Residents' gym", c:"Bikes, cardio and weights."},
+      {img:"m48.jpg", p:45, t:"Residents' gym", c:"Open to the garden on three sides."}
     ]},
     gardens:{name:"Gardens", slides:[
-      {img:"m57.jpg", t:"The gardens", c:"Crotons, ginger lilies and a lot of shade."},
-      {img:"m32.jpg", t:"Garden steps", c:"Flower beds on both sides."},
-      {img:"m59.jpg", t:"Palms and lawn", c:"The creek just behind."},
-      {img:"m43.jpg", t:"Garden path", c:"Down towards the water."},
-      {img:"m62.jpg", t:"Towards the creek", c:"Every path ends at the water."},
-      {img:"m64.jpg", t:"The lawn", c:"Loungers in the sun."},
-      {img:"m17.jpg", t:"From above", c:"Lawn, shade sails and the pool."},
-      {img:"m63.jpg", t:"The view", c:"The creek from the edge of the garden."},
+      {img:"m57.jpg", p:50, t:"The gardens", c:"Crotons, ginger lilies and a lot of shade."},
+      {img:"m32.jpg", p:45, t:"Garden steps", c:"Flower beds on both sides."},
+      {img:"m59.jpg", p:62, t:"Palms and lawn", c:"The creek just behind."},
+      {img:"m43.jpg", p:62, t:"Garden path", c:"Down towards the water."},
+      {img:"m62.jpg", p:58, t:"Towards the creek", c:"Every path ends at the water."},
+      {img:"m64.jpg", p:55, t:"The lawn", c:"Loungers in the sun."},
+      {img:"m17.jpg", p:45, t:"From above", c:"Lawn, shade sails and the pool."},
+      {img:"m63.jpg", p:50, t:"The view", c:"The creek from the edge of the garden."},
       {img:"o-dusk2.jpg", t:"Dusk", c:"Around six, the lamps go on."}
     ]},
     marina:{name:"Marina", slides:[
-      {img:"m1.jpg", t:"The jetty", c:"Seen from the garden."},
-      {img:"m2.jpg", t:"Tudor Creek", c:"Sheltered water, a few minutes from the open sea."},
-      {img:"m74.jpg", t:"The jetty", c:"The best seat on the creek, boat or no boat."},
-      {img:"m26.jpg", t:"Pontoon moorings", c:"Boats up to 30 ft."},
-      {img:"m15.jpg", t:"From above", c:"The jetty and pontoon on a clear day."},
-      {img:"m51.jpg", t:"Deck over the water", c:"Right on the creek."},
-      {img:"m77.jpg", t:"A table in the shade", c:"Looking out over the jetty."}
+      {img:"m1.jpg", p:36, t:"The jetty", c:"Seen from the garden."},
+      {img:"m2.jpg", p:55, t:"Tudor Creek", c:"Sheltered water, a few minutes from the open sea."},
+      {img:"m74.jpg", p:50, t:"The jetty", c:"The best seat on the creek, boat or no boat."},
+      {img:"m26.jpg", p:58, t:"Pontoon moorings", c:"Boats up to 30 ft."},
+      {img:"m15.jpg", p:45, t:"From above", c:"The jetty and pontoon on a clear day."},
+      {img:"m51.jpg", p:45, t:"Deck over the water", c:"Right on the creek."},
+      {img:"m77.jpg", p:48, t:"A table in the shade", c:"Looking out over the jetty."}
     ]}
   };
   var ORDER = ["apartments","pools","gardens","marina"];
@@ -906,7 +913,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
       body.innerHTML = '<div class="sv-txt'+(sl.pink?' pink':'')+'"><div class="big">'+sl.big+'</div><div class="mid">'+sl.mid+'</div><div class="sm">'+sl.sm+'</div>'+(sl.cta?'<a class="btn wa" href="#" target="_blank" rel="noopener" style="position:relative;z-index:4">Open WhatsApp</a>':'')+'</div>';
       waLinks(body);
     } else {
-      body.innerHTML = '<div class="sv-bg" style="background-image:url(img/'+sl.img+')"></div><img src="img/'+sl.img+'" alt="'+sl.t+'"><div class="sv-cap"><b>'+sl.t+'</b><span>'+sl.c+'</span></div>';
+      body.innerHTML = '<img class="sv-photo" src="img/'+sl.img+'" alt="'+sl.t+'" style="object-position:'+(sl.p||50)+'% 50%"><div class="sv-cap"><b>'+sl.t+'</b><span>'+sl.c+'</span></div>';
     }
     clearTimeout(timer);
     if (!still && !sl.cta) timer = setTimeout(next, DUR);
