@@ -544,6 +544,9 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 .bubble:hover .bc{transform:scale(1.05);transition:transform .2s}
 @media (min-width:900px){.bubble{right:24px;bottom:24px}.bubble .bc{width:70px;height:70px}}
 @media (prefers-reduced-motion:no-preference){.bubble .bc::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid #fff;animation:bub 2.6s ease-out 1.5s 3}@keyframes bub{from{transform:scale(1);opacity:.9}to{transform:scale(1.35);opacity:0}}}
+/* compact bubble: round still with a small badge */
+.bubble{flex-direction:column}
+.bubble .bl{margin:-11px 0 0;padding:4px 9px;border-radius:999px;background:var(--bloom);color:#fff;font:500 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;box-shadow:0 2px 8px rgba(22,32,30,.25);position:relative;z-index:1}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
