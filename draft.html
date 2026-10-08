@@ -493,6 +493,9 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 .thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
 .quad figure{position:relative;margin:0}
 .quad.pools{grid-template-columns:repeat(2,minmax(0,1fr))}
+/* security list: two columns where there is room, tighter rows on phone */
+@container site (min-width:560px){.ticks.one{grid-template-columns:1fr 1fr;column-gap:40px}}
+@container site (max-width:559px){.ticks.one li{padding:10px 0}}
 </style>
 </head>
 <body>
