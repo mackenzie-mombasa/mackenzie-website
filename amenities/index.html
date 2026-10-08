@@ -810,7 +810,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
     });
   }
 
-  var gHTML = '<div class="g">GOOGLE REVIEWS</div><div class="score"><b>4.7</b><span><span class="stars">★★★★★</span>30 reviews</span></div>'+
+  var gHTML = '<div class="g">GOOGLE REVIEWS</div><div class="score"><b>4.8</b><span><span class="stars">★★★★★</span>29 reviews</span></div>'+
     '<div class="row"><a class="btn" href="'+GM+'" target="_blank" rel="noopener">Read the reviews</a><a class="btn" href="'+DIR+'" target="_blank" rel="noopener">Get directions</a></div>';
   document.querySelectorAll("[data-google]").forEach(function(el){ el.innerHTML = gHTML; });
   function stepTo(t, dir){ var x = t.scrollLeft, base = t.getBoundingClientRect().left, pos = Array.prototype.map.call(t.children, function(k){ return k.getBoundingClientRect().left - base + x; }), target = null, i;
