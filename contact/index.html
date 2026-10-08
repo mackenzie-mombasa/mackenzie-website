@@ -486,6 +486,10 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 .sv-cap{background:none;padding:0 6px;bottom:22px;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.55)}
 .sv-cap b{color:#fff;opacity:.9}
 .sv-cap span{font-size:17px}
+/* smaller sideways photo rows (Apartments page) */
+.car-track.sm figure{height:clamp(240px,30cqi,400px)}
+@container site (max-width:560px){.car-track.sm figure{height:clamp(220px,62cqi,300px)}}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -685,6 +689,12 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
     var p = btn("prev", "Previous", "&#8592;", -1), n = btn("next", "More", "&#8594;", 1);
     function upd(){ p.hidden = t.scrollLeft < 8; n.hidden = t.scrollLeft + t.clientWidth > t.scrollWidth - 8; }
     t.addEventListener("scroll", upd); window.addEventListener("load", upd); window.addEventListener("resize", upd); window.addEventListener("hashchange", function(){ setTimeout(upd, 50); }); upd();
+  });
+  document.querySelectorAll(".car-track[data-car]").forEach(function(t){ var w = t.parentNode;
+    function btn(cls, label, txt, dir){ var b = document.createElement("button"); b.type = "button"; b.className = "car-btn " + cls; b.setAttribute("aria-label", label); b.innerHTML = txt; b.addEventListener("click", function(){ t.scrollBy({left: dir * t.clientWidth * 0.8, behavior: "smooth"}); }); w.appendChild(b); return b; }
+    var p = btn("prev", "Previous photos", "&#8592;", -1), n = btn("next", "More photos", "&#8594;", 1);
+    function upd(){ p.hidden = t.scrollLeft < 8; n.hidden = t.scrollLeft + t.clientWidth > t.scrollWidth - 8; }
+    t.addEventListener("scroll", upd); window.addEventListener("load", function(){ setTimeout(upd, 300); }); window.addEventListener("resize", upd); upd();
   });
   var carT = document.getElementById("car-track"), carP = document.getElementById("car-prev"), carN = document.getElementById("car-next");
   if (carT){ function carUpd(){ carP.hidden = carT.scrollLeft < 8; carN.hidden = carT.scrollLeft + carT.clientWidth > carT.scrollWidth - 8; }

@@ -57,7 +57,7 @@ foreach($pg in $pages){
   if($pg.key -eq "home"){ $html = $html.Replace('<a href="./">Home</a>','<a href="./" aria-current="page">Home</a>') }
 
   # asset paths for pages one folder down
-  if($p){ $html = [regex]::Replace($html,'(?<=["''(])img/',$p+'img/') }
+  if($p){ $html = [regex]::Replace($html,'(?<=["''(]|w, )img/',$p+'img/') }
 
   $outDir = Join-Path $root $pg.dir; if($pg.dir){ New-Item -ItemType Directory -Force $outDir | Out-Null }
   [IO.File]::WriteAllText((Join-Path $outDir "index.html"),$html,$utf8)

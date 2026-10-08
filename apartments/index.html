@@ -486,6 +486,10 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 .sv-cap{background:none;padding:0 6px;bottom:22px;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.55)}
 .sv-cap b{color:#fff;opacity:.9}
 .sv-cap span{font-size:17px}
+/* smaller sideways photo rows (Apartments page) */
+.car-track.sm figure{height:clamp(240px,30cqi,400px)}
+@container site (max-width:560px){.car-track.sm figure{height:clamp(220px,62cqi,300px)}}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -564,7 +568,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
         </div>
       </div>
     </section>
-    <section class="wrap pimg" style="margin-top:clamp(40px,6cqi,80px)"><img src="../img/m21.jpg" alt="A balcony with a table and chairs, looking through palms to the creek" width="1600" height="1067"></section>
+    <section class="wrap pimg" style="margin-top:clamp(40px,6cqi,80px)"><img src="../img/m21-xl.jpg" srcset="../img/m21.jpg 1600w, ../img/m21-xl.jpg 2400w" sizes="(min-width:1300px) 1144px, 94vw" data-full="../img/m21-xl.jpg" alt="A balcony with a table and chairs, looking through palms to the creek" width="1600" height="1067"></section>
     <section class="sec">
       <div class="wrap">
         <div class="head"><div class="lbl">In every apartment</div><h2>Arrive with a suitcase</h2></div>
@@ -582,34 +586,37 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
     <section class="sec">
       <div class="wrap">
         <div class="head"><div class="lbl">Inside</div><h2>A few of the rooms</h2></div>
-        <div class="gallery g3 land">
-          <figure><img src="../img/a-sunliving.jpg" alt="Bright living and dining room with big windows onto the garden" loading="lazy"></figure>
-          <figure><img src="../img/a-sunbed.jpg" alt="Bedroom with a four-poster bed and garden view" loading="lazy"></figure>
-          <figure><img src="../img/m22-s.jpg" data-full="../img/m22.jpg" alt="Kitchen with timber cabinets, a gas hob and a fridge" loading="lazy"></figure>
-          <figure><img src="../img/i-living2.jpg" alt="Living room with cane sofas and doors open to the veranda" loading="lazy"></figure>
-          <figure><img src="../img/m11-s.jpg" data-full="../img/m11.jpg" alt="Bedroom with timber furniture and louvred wardrobes" loading="lazy"></figure>
-          <figure><img src="../img/a-desk.jpg" alt="Living room with a long desk and louvred windows" loading="lazy"></figure>
-          <figure><img src="../img/m23-s.jpg" data-full="../img/m23.jpg" alt="Dining table and sitting area in a bright living room" loading="lazy"></figure>
-          <figure><img src="../img/a-bed3.jpg" alt="Bedroom with timber floor, opening onto a veranda" loading="lazy"></figure>
-          <figure><img src="../img/i-living3.jpg" alt="Long living room with red sofas and a kitchen beyond" loading="lazy"></figure>
-        </div>
+        <div class="car"><div class="car-track sm" data-car>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/m22-s.jpg" data-full="../img/m22.jpg" alt="Kitchen with timber cabinets, a gas hob and a fridge" width="1600" height="1067"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/m23-s.jpg" data-full="../img/m23.jpg" alt="Dining table and sitting area in a bright living room" width="1600" height="1031"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/m10-s.jpg" data-full="../img/m10.jpg" alt="Bedroom with twin beds and a wall of windows onto the garden" width="1600" height="1066"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/m19-s.jpg" data-full="../img/m19.jpg" alt="Bedroom with a four-poster bed, opening onto a balcony over the creek" width="1600" height="1068"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/m11-s.jpg" data-full="../img/m11.jpg" alt="Bedroom with timber furniture and louvred wardrobes" width="1600" height="1022"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/a-sunliving-e-s.jpg" data-full="../img/a-sunliving-e.jpg" alt="Bright living and dining room with big windows onto the garden" width="1400" height="1050"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/a-sunbed-e-s.jpg" data-full="../img/a-sunbed-e.jpg" alt="Bedroom with a four-poster bed and garden view" width="1353" height="1015"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/i-living2-e-s.jpg" data-full="../img/i-living2-e.jpg" alt="Living room with cane sofas and doors open to the veranda" width="1500" height="1125"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/a-desk-e-s.jpg" data-full="../img/a-desk-e.jpg" alt="Living room with a long desk and louvred windows" width="1280" height="960"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/a-bed3-e-s.jpg" data-full="../img/a-bed3-e.jpg" alt="Bedroom with timber floor, opening onto a veranda" width="1400" height="1050"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/i-living3-e-s.jpg" data-full="../img/i-living3-e.jpg" alt="Long living room with red sofas and a kitchen beyond" width="1500" height="1125"></figure>
+        </div></div>
       </div>
     </section>
     <section class="sec tint">
       <div class="wrap">
         <div class="head"><div class="lbl">From outside</div><h2>Tucked into the garden</h2>
           <p class="lead">The apartments and cottages are spread through the gardens, built in coral stone and timber, each with its own way in.</p></div>
-        <div class="gallery g3 port">
-          <figure><img src="../img/x-stone.jpg" alt="A coral stone residence above flowering shrubs" loading="lazy"></figure>
-          <figure><img src="../img/h-residence.jpg" alt="Residences with balconies among palms and bougainvillea" loading="lazy"></figure>
-          <figure><img src="../img/e-treetops.jpg" alt="A residence raised on timber, with an outside staircase" loading="lazy"></figure>
-          <figure><img src="../img/e-res3.jpg" alt="A stone residence roofline among palms" loading="lazy"></figure>
-          <figure><img src="../img/e-door.jpg" alt="Timber front doors under a pergola" loading="lazy"></figure>
-          <figure><img src="../img/e-veranda.jpg" alt="A veranda with a round table and white chairs" loading="lazy"></figure>
-          <figure><img src="../img/e-res2.jpg" alt="A stone residence behind a frangipani" loading="lazy"></figure>
-          <figure><img src="../img/a-balcony.jpg" alt="View from a balcony over the pool to the creek" loading="lazy"></figure>
-          <figure><img src="../img/h-cottage.jpg" alt="A cottage with the creek behind it" loading="lazy"></figure>
-        </div>
+        <div class="car"><div class="car-track sm" data-car>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/m35-s.jpg" data-full="../img/m35.jpg" alt="The residences and both pools seen from above, set in the gardens" width="1600" height="899"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/h-residence-s.jpg" data-full="../img/h-residence.jpg" alt="Residences with balconies among palms and bougainvillea" width="1129" height="1500"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/m56-s.jpg" data-full="../img/m56.jpg" alt="A garden path running beside one of the residences" width="1600" height="1067"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/x-stone-s.jpg" data-full="../img/x-stone.jpg" alt="A coral stone residence above flowering shrubs" width="1129" height="1500"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/e-res2-s.jpg" data-full="../img/e-res2.jpg" alt="A stone residence behind a frangipani" width="1400" height="1051"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/e-veranda-s.jpg" data-full="../img/e-veranda.jpg" alt="A veranda with a round table and white chairs" width="1051" height="1400"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/a-balcony-s.jpg" data-full="../img/a-balcony.jpg" alt="View from a balcony over the pool to the creek" width="1400" height="1050"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/e-door-e-s.jpg" data-full="../img/e-door-e.jpg" alt="Timber front doors under a pergola" width="984" height="1310"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/e-res3-s.jpg" data-full="../img/e-res3.jpg" alt="A stone residence roofline among palms" width="1126" height="1500"></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="../img/h-cottage-s.jpg" data-full="../img/h-cottage.jpg" alt="A cottage with the creek behind it" width="1126" height="1500"></figure>
+        </div></div>
       </div>
     </section>
     <section class="sec tint">
@@ -756,6 +763,12 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
     var p = btn("prev", "Previous", "&#8592;", -1), n = btn("next", "More", "&#8594;", 1);
     function upd(){ p.hidden = t.scrollLeft < 8; n.hidden = t.scrollLeft + t.clientWidth > t.scrollWidth - 8; }
     t.addEventListener("scroll", upd); window.addEventListener("load", upd); window.addEventListener("resize", upd); window.addEventListener("hashchange", function(){ setTimeout(upd, 50); }); upd();
+  });
+  document.querySelectorAll(".car-track[data-car]").forEach(function(t){ var w = t.parentNode;
+    function btn(cls, label, txt, dir){ var b = document.createElement("button"); b.type = "button"; b.className = "car-btn " + cls; b.setAttribute("aria-label", label); b.innerHTML = txt; b.addEventListener("click", function(){ t.scrollBy({left: dir * t.clientWidth * 0.8, behavior: "smooth"}); }); w.appendChild(b); return b; }
+    var p = btn("prev", "Previous photos", "&#8592;", -1), n = btn("next", "More photos", "&#8594;", 1);
+    function upd(){ p.hidden = t.scrollLeft < 8; n.hidden = t.scrollLeft + t.clientWidth > t.scrollWidth - 8; }
+    t.addEventListener("scroll", upd); window.addEventListener("load", function(){ setTimeout(upd, 300); }); window.addEventListener("resize", upd); upd();
   });
   var carT = document.getElementById("car-track"), carP = document.getElementById("car-prev"), carN = document.getElementById("car-next");
   if (carT){ function carUpd(){ carP.hidden = carT.scrollLeft < 8; carN.hidden = carT.scrollLeft + carT.clientWidth > carT.scrollWidth - 8; }
