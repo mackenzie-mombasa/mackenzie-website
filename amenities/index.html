@@ -495,6 +495,8 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 /* security list: two columns where there is room, tighter rows on phone */
 @container site (min-width:560px){.ticks.one{grid-template-columns:1fr 1fr;column-gap:40px}}
 @container site (max-width:559px){.ticks.one li{padding:10px 0}}
+.film{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:8px;background:#16201E}
+[data-page="living"] section[id]{scroll-margin-top:76px}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -540,9 +542,10 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
       <div class="lbl">Amenities</div>
       <h1>Everything on site</h1>
       <p class="lead">Two pools, several decks by the water, a gym, a private jetty and decades of garden, all inside a private gated community.</p>
+      <div class="jump"><button type="button" class="btn" data-jump="am-pools">Pools</button><button type="button" class="btn" data-jump="am-security">Security &amp; services</button><button type="button" class="btn" data-jump="am-gym">Gym</button><button type="button" class="btn" data-jump="am-decks">Decks</button><button type="button" class="btn" data-jump="am-gardens">Gardens</button><button type="button" class="btn" data-jump="am-jetty">Jetty &amp; marina</button></div>
     </section>
 
-    <section class="sec" style="padding-top:clamp(16px,2cqi,24px)">
+    <section class="sec" id="am-pools" style="padding-top:clamp(16px,2cqi,24px)">
       <div class="wrap">
         <div class="head"><div class="lbl">Two pools</div><h2>One for lengths, one for lounging</h2>
           <p class="lead">The garden pool is long and lined with palms. The terrace pool has tables, loungers and frangipani shade.</p></div>
@@ -555,45 +558,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
       </div>
     </section>
 
-    <section class="sec tint">
-      <div class="wrap">
-        <div class="head"><div class="lbl">Decks and terraces</div><h2>Places to sit by the water</h2>
-          <p class="lead">Decks and terraces along the creek, shared by residents, with tables, shade and the view.</p></div>
-        <div class="quad q3">
-          <figure><img src="../img/m66-s.jpg" data-full="../img/m66.jpg" alt="A round table and chairs on the lawn, seen from above" loading="lazy"></figure>
-          <figure><img src="../img/m77-s.jpg" data-full="../img/m77.jpg" alt="A table under a shade sail, looking out over the jetty and the creek" loading="lazy"></figure>
-          <figure><img src="../img/m68-s.jpg" data-full="../img/m68.jpg" alt="White loungers on the lawn under a frangipani" loading="lazy"></figure>
-          <figure><img src="../img/m50-s.jpg" data-full="../img/m50.jpg" alt="A shaded deck under bougainvillea, leading to the water" loading="lazy"></figure>
-          <figure><img src="../img/m31-s.jpg" data-full="../img/m31.jpg" alt="The lawn at the top of the garden, with a table looking over the creek" loading="lazy"></figure>
-          <figure><img src="../img/m51-s.jpg" data-full="../img/m51.jpg" alt="A white table and chairs on a deck right over the water" loading="lazy"></figure>
-        </div>
-        </div>
-    </section>
-
-    <section class="sec">
-      <div class="wrap stack">
-        <div class="split">
-          <div><div class="ph"><img src="../img/m47-s.jpg" data-full="../img/m47.jpg" alt="Residents' gym with spin bikes, rowing machine and punch bag, open to the garden" loading="lazy"><span class="ph-tag">Residents' gym</span></div>
-            <div class="thumbs"><img src="../img/m48-s.jpg" data-full="../img/m48.jpg" alt="Dumbbell racks by the windows onto the garden" loading="lazy"><img src="../img/m49-s.jpg" data-full="../img/m49.jpg" alt="Weights bench and rack against the coral stone wall" loading="lazy"><img src="../img/m60-s.jpg" data-full="../img/m60.jpg" alt="The gym seen from the lawn, with a bench outside" loading="lazy"></div></div>
-          <div class="txt">
-            <div class="lbl">Gym</div>
-            <h2>Train without leaving home</h2>
-            <p>Bikes, cardio and weights in a bright room with a timber floor, open to the garden on three sides.</p>
-          </div>
-        </div>
-        <div class="split flip">
-          <div class="ph"><img src="../img/m55-s.jpg" data-full="../img/m55.jpg" alt="The whole jetty and a moored yacht, seen from above" loading="lazy"><span class="ph-tag">The jetty</span></div>
-          <div class="txt">
-            <div class="lbl">Jetty and marina</div>
-            <h2>A private jetty and boat moorings</h2>
-            <p>A long wooden jetty into the creek, and pontoon moorings for boats up to 30 ft.</p>
-            <div><a class="more" href="../marina/">More about the marina</a></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="sec estate">
+    <section class="sec estate" id="am-security">
       <div class="wrap split">
         <div class="txt">
           <div class="lbl">Security and services</div>
@@ -617,7 +582,36 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
       </div>
     </section>
 
-    <section class="sec">
+    <section class="sec" id="am-gym">
+      <div class="wrap stack">
+        <div class="split">
+          <div><div class="ph"><img src="../img/m47-s.jpg" data-full="../img/m47.jpg" alt="Residents' gym with spin bikes, rowing machine and punch bag, open to the garden" loading="lazy"><span class="ph-tag">Residents' gym</span></div>
+            <div class="thumbs"><img src="../img/m48-s.jpg" data-full="../img/m48.jpg" alt="Dumbbell racks by the windows onto the garden" loading="lazy"><img src="../img/m49-s.jpg" data-full="../img/m49.jpg" alt="Weights bench and rack against the coral stone wall" loading="lazy"><img src="../img/m60-s.jpg" data-full="../img/m60.jpg" alt="The gym seen from the lawn, with a bench outside" loading="lazy"></div></div>
+          <div class="txt">
+            <div class="lbl">Gym</div>
+            <h2>Train without leaving home</h2>
+            <p>Bikes, cardio and weights in a bright room with a timber floor, open to the garden on three sides.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec tint" id="am-decks">
+      <div class="wrap">
+        <div class="head"><div class="lbl">Decks and terraces</div><h2>Places to sit by the water</h2>
+          <p class="lead">Decks and terraces along the creek, shared by residents, with tables, shade and the view.</p></div>
+        <div class="quad q3">
+          <figure><img src="../img/m66-s.jpg" data-full="../img/m66.jpg" alt="A round table and chairs on the lawn, seen from above" loading="lazy"></figure>
+          <figure><img src="../img/m77-s.jpg" data-full="../img/m77.jpg" alt="A table under a shade sail, looking out over the jetty and the creek" loading="lazy"></figure>
+          <figure><img src="../img/m68-s.jpg" data-full="../img/m68.jpg" alt="White loungers on the lawn under a frangipani" loading="lazy"></figure>
+          <figure><img src="../img/m50-s.jpg" data-full="../img/m50.jpg" alt="A shaded deck under bougainvillea, leading to the water" loading="lazy"></figure>
+          <figure><img src="../img/m31-s.jpg" data-full="../img/m31.jpg" alt="The lawn at the top of the garden, with a table looking over the creek" loading="lazy"></figure>
+          <figure><img src="../img/m51-s.jpg" data-full="../img/m51.jpg" alt="A white table and chairs on a deck right over the water" loading="lazy"></figure>
+        </div>
+        </div>
+    </section>
+
+    <section class="sec" id="am-gardens">
       <div class="wrap">
         <div class="head"><div class="lbl">Around the gardens</div><h2>A garden that's had decades to grow</h2></div>
         <div class="quad">
@@ -625,6 +619,20 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
           <figure><img src="../img/m67-s.jpg" data-full="../img/m67.jpg" alt="White loungers on the lawn among flowering shrubs" loading="lazy"></figure>
           <figure><img src="../img/m58-s.jpg" data-full="../img/m58.jpg" alt="A path through crotons and ginger lilies" loading="lazy"></figure>
           <figure><img src="../img/m61-s.jpg" data-full="../img/m61.jpg" alt="A shaded path under the trees, leading to the creek" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec tint" id="am-jetty">
+      <div class="wrap stack">
+        <div class="split flip">
+          <div class="ph"><img src="../img/m55-s.jpg" data-full="../img/m55.jpg" alt="The whole jetty and a moored yacht, seen from above" loading="lazy"><span class="ph-tag">The jetty</span></div>
+          <div class="txt">
+            <div class="lbl">Jetty and marina</div>
+            <h2>A private jetty and boat moorings</h2>
+            <p>A long wooden jetty into the creek, and pontoon moorings for boats up to 30 ft.</p>
+            <div><a class="more" href="../marina/">More about the marina</a></div>
+          </div>
         </div>
       </div>
     </section>
@@ -755,23 +763,27 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
   var gHTML = '<div class="g">GOOGLE REVIEWS</div><div class="score"><b>4.7</b><span><span class="stars">★★★★★</span>30 reviews</span></div>'+
     '<div class="row"><a class="btn" href="'+GM+'" target="_blank" rel="noopener">Read the reviews</a><a class="btn" href="'+DIR+'" target="_blank" rel="noopener">Get directions</a></div>';
   document.querySelectorAll("[data-google]").forEach(function(el){ el.innerHTML = gHTML; });
+  function stepTo(t, dir){ var x = t.scrollLeft, base = t.getBoundingClientRect().left, pos = Array.prototype.map.call(t.children, function(k){ return k.getBoundingClientRect().left - base + x; }), target = null, i;
+    if (dir > 0){ for (i = 0; i < pos.length; i++){ if (pos[i] > x + 8){ target = pos[i]; break; } } if (target === null) target = t.scrollWidth; }
+    else { for (i = pos.length - 1; i >= 0; i--){ if (pos[i] < x - 8){ target = pos[i]; break; } } if (target === null) target = 0; }
+    t.scrollTo({left: target, behavior: "smooth"}); }
   document.querySelectorAll('[data-page="home"] .onsite, [data-page="home"] .cards').forEach(function(t){
     var w = document.createElement("div"); w.className = "car cards-car"; t.parentNode.insertBefore(w, t); w.appendChild(t);
-    function btn(cls, label, txt, dir){ var b = document.createElement("button"); b.type = "button"; b.className = "car-btn " + cls; b.setAttribute("aria-label", label); b.innerHTML = txt; b.addEventListener("click", function(){ t.scrollBy({left: dir * t.clientWidth * 0.8, behavior: "smooth"}); }); w.appendChild(b); return b; }
+    function btn(cls, label, txt, dir){ var b = document.createElement("button"); b.type = "button"; b.className = "car-btn " + cls; b.setAttribute("aria-label", label); b.innerHTML = txt; b.addEventListener("click", function(){ stepTo(t, dir); }); w.appendChild(b); return b; }
     var p = btn("prev", "Previous", "&#8592;", -1), n = btn("next", "More", "&#8594;", 1);
     function upd(){ p.hidden = t.scrollLeft < 8; n.hidden = t.scrollLeft + t.clientWidth > t.scrollWidth - 8; }
     t.addEventListener("scroll", upd); window.addEventListener("load", upd); window.addEventListener("resize", upd); window.addEventListener("hashchange", function(){ setTimeout(upd, 50); }); upd();
   });
   document.querySelectorAll(".car-track[data-car]").forEach(function(t){ var w = t.parentNode;
-    function btn(cls, label, txt, dir){ var b = document.createElement("button"); b.type = "button"; b.className = "car-btn " + cls; b.setAttribute("aria-label", label); b.innerHTML = txt; b.addEventListener("click", function(){ t.scrollBy({left: dir * t.clientWidth * 0.8, behavior: "smooth"}); }); w.appendChild(b); return b; }
+    function btn(cls, label, txt, dir){ var b = document.createElement("button"); b.type = "button"; b.className = "car-btn " + cls; b.setAttribute("aria-label", label); b.innerHTML = txt; b.addEventListener("click", function(){ stepTo(t, dir); }); w.appendChild(b); return b; }
     var p = btn("prev", "Previous photos", "&#8592;", -1), n = btn("next", "More photos", "&#8594;", 1);
     function upd(){ p.hidden = t.scrollLeft < 8; n.hidden = t.scrollLeft + t.clientWidth > t.scrollWidth - 8; }
     t.addEventListener("scroll", upd); window.addEventListener("load", function(){ setTimeout(upd, 300); }); window.addEventListener("resize", upd); upd();
   });
   var carT = document.getElementById("car-track"), carP = document.getElementById("car-prev"), carN = document.getElementById("car-next");
   if (carT){ function carUpd(){ carP.hidden = carT.scrollLeft < 8; carN.hidden = carT.scrollLeft + carT.clientWidth > carT.scrollWidth - 8; }
-  carP.addEventListener("click", function(){ carT.scrollBy({left: -carT.clientWidth * 0.8, behavior: "smooth"}); });
-  carN.addEventListener("click", function(){ carT.scrollBy({left: carT.clientWidth * 0.8, behavior: "smooth"}); });
+  carP.addEventListener("click", function(){ stepTo(carT, -1); });
+  carN.addEventListener("click", function(){ stepTo(carT, 1); });
   carT.addEventListener("scroll", carUpd); window.addEventListener("load", carUpd); carUpd(); }
   document.querySelectorAll("[data-swipe]").forEach(function(t){
     var w = document.createElement("div"); w.className = "swipe-wrap"; t.parentNode.insertBefore(w, t); w.appendChild(t);
