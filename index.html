@@ -526,6 +526,13 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
   .near-grid .nm small{display:none}
 }
 @container site (min-width:1000px){.near-grid{grid-template-columns:repeat(6,minmax(0,1fr))}}
+/* 'watch the film' link under the intro line */
+.watch-link{justify-self:start;display:inline-flex;align-items:center;gap:10px;padding:0;border:0;background:none;color:var(--ink);cursor:pointer}
+.watch-link .pl{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--bloom);color:#fff;font-size:10px;padding-left:2px;flex:none;transition:transform .2s}
+.watch-link:hover .pl{transform:scale(1.1)}
+.watch-link b{font:600 16px/1 var(--display);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:1.5px;text-underline-offset:5px}
+.watch-link:hover b{text-decoration-color:var(--bloom)}
+.watch-link small{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -572,6 +579,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
         <div class="ttl">
           <h1>Home, on the creek.</h1>
           <p class="lead">Waterfront apartments for long-term rent, in tropical gardens by Nyali Bridge, Mombasa.</p>
+          <button type="button" class="watch-link" data-jump="film" data-play><span class="pl" aria-hidden="true">&#9654;</span><b>Watch the film</b><small>58 sec</small></button>
         </div>
         <div class="ctas">
           <a class="btn btn-wa wa" href="#" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Check availability</a>
@@ -581,7 +589,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
     </section>
 
     <section class="wrap">
-      <div class="car"><button type="button" class="watch" data-jump="film" data-play aria-label="Watch the film, 58 seconds"><span class="th" aria-hidden="true"><img src="img/video-thumb.jpg" alt="" width="80" height="80"><i>&#9654;</i></span><span class="tx"><b>Watch the film</b><small>58 seconds</small></span></button><div class="car-track" id="car-track">
+      <div class="car"><div class="car-track" id="car-track">
           <figure><img src="img/m27-m.jpg" data-full="img/m27.jpg" fetchpriority="high" alt="The lawn table at the top of the garden, looking across Tudor Creek" width="1600" height="1067"><span class="ph-tag">Tudor Creek, from the garden</span></figure>
           <figure><img src="img/m26-m.jpg" data-full="img/m26.jpg" alt="The jetty and pontoon from the air, with a yacht moored" width="1600" height="900"><span class="ph-tag">The jetty, from the air</span></figure>
           <figure><img src="img/m20-m.jpg" data-full="img/m20.jpg" alt="Looking out from the apartment to a private balcony, palms and the creek" width="1600" height="1067"><span class="ph-tag">Inside · out to the balcony</span></figure>
