@@ -260,142 +260,6 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
   .mbar .btn span{display:none}.mbar .btn .ico{width:26px;height:26px;margin:0}}
 .intro .ttl .lead span.short{display:none}
 @container site (max-width:699px){.intro .ctas{display:none}.intro{padding-bottom:6px}}
-.jump{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-.split[id]{scroll-margin-top:90px}
-.page[hidden]{display:none!important}
-/* ---------- draft 5: layout fixes, real map, fewer stories ---------- */
-.mosaic-hero figure{min-height:0;overflow:hidden;border-radius:6px}
-@container site (min-width:760px){.mosaic-hero{grid-template-rows:minmax(0,1fr) minmax(0,1fr)}}
-.card{display:flex;flex-direction:column;gap:12px}
-.card .more{margin-top:auto;align-self:flex-start}
-.pricing{margin-top:clamp(24px,3cqi,36px);padding-top:18px;border-top:1px solid var(--line);color:var(--muted);max-width:46em}
-.pricing a{color:var(--ink);font-weight:600;text-decoration-color:var(--bloom);text-decoration-thickness:2px;text-underline-offset:4px}
-.onsite{grid-template-columns:1fr 1fr;gap:28px 12px}
-@container site (min-width:820px){.onsite{grid-template-columns:repeat(3,1fr);gap:40px 20px}}
-.os img{aspect-ratio:4/5}
-.os h3{font-size:clamp(19px,2.2cqi,26px)}
-.os p{font-size:clamp(15px,1.6cqi,17px)}
-.more-photos{margin-top:clamp(40px,5cqi,64px);padding-top:clamp(24px,3cqi,32px);border-top:1.5px solid var(--ink);display:grid;gap:18px}
-.hl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,2.4cqi,36px);overflow:visible;padding:0;margin:0;max-width:680px}
-.hl button{font:600 clamp(13px,1.6cqi,16px)/1.2 var(--display);gap:10px}
-.hl .ring{width:100%;max-width:132px}
-.near2{display:grid;gap:clamp(20px,3cqi,32px)}
-.realmap{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
-.realmap .scroll{overflow-x:auto}
-.realmap .canvas{position:relative;min-width:940px;aspect-ratio:1911/958}
-.realmap .canvas img{position:absolute;inset:0;width:100%;height:100%;max-width:none;filter:saturate(.5) brightness(1.04) contrast(.96)}
-.realmap .canvas svg{position:absolute;inset:0;width:100%;height:100%}
-.realmap .mbtns{display:flex;flex-wrap:wrap;gap:8px;padding:12px;border-top:1px solid var(--line);align-items:center}
-.realmap .mbtns .btn{padding:10px 14px;font-size:14px}
-.btn-ink{background:var(--ink);color:var(--paper)}
-.realmap .credit{margin-left:auto;font:400 11.5px var(--mono);color:var(--muted)}
-.near-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr;column-gap:40px;border-bottom:1px solid var(--line)}
-@container site (min-width:700px){.near-grid{grid-template-columns:1fr 1fr}}
-.near-grid li{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:13px 0;border-top:1px solid var(--line)}
-.near-grid .num{width:28px;height:28px;border-radius:50%;background:var(--creek);color:#fff;display:grid;place-items:center;font:800 13px var(--display)}
-.near-grid .nm{font:600 17px/1.25 var(--display)}
-.near-grid .nm small{display:block;font:400 15px var(--body);color:var(--muted)}
-.near-grid .t{font:500 15px var(--mono);text-align:right;white-space:nowrap}
-.near-grid .t small{display:block;color:var(--muted);font-size:12px}
-.near-grid li{cursor:pointer}
-.near-grid li.on .num,.realmap g.on circle{background:var(--bloom);fill:#B8306F}
-/* phone: the 12 places become two rows of cards that slide sideways */
-@container site (max-width:699px){
-  .near-grid{grid-template-columns:none;grid-auto-flow:column;grid-template-rows:repeat(2,auto);grid-auto-columns:42cqi;gap:10px;border:0;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;margin-right:calc(-1 * var(--g));padding-right:var(--g)}
-  .near-grid::-webkit-scrollbar{display:none}
-  .near-grid li{grid-template-columns:auto 1fr;grid-template-areas:"num t" "nm nm";gap:10px;align-items:start;align-content:start;padding:12px;background:#fff;border:1px solid var(--line);border-radius:10px;scroll-snap-align:start}
-  .near-grid li.on{border-color:var(--bloom)}
-  .near-grid .num{grid-area:num}
-  .near-grid .t{grid-area:t;font-size:14px;line-height:1.3}
-  .near-grid .nm{grid-area:nm;font-size:15.5px}
-  .near-grid .nm small{display:none}
-}
-.gbox .score .stars{color:#C98A1B}
-/* ---------- draft 6: amenities, gated estate ---------- */
-.os img{aspect-ratio:4/3}
-.intro .ttl{display:grid;gap:14px}
-.intro .lead{max-width:30em}
-.estate{background:var(--creek-lt)}
-.ticks.one{grid-template-columns:1fr;margin-top:6px}
-.sec.ruled{padding-top:0}
-.sec.ruled>.wrap{border-top:1.5px solid var(--ink);padding-top:clamp(40px,6cqi,80px)}
-/* ---------- draft 7: one home for each thing ---------- */
-.also{margin-top:clamp(28px,4cqi,44px);display:grid;gap:12px}
-.svc{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.svc li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 15px;font:500 15px/1.2 var(--display)}
-.inl{color:var(--ink);font-weight:600;text-decoration-color:var(--bloom);text-decoration-thickness:2px;text-underline-offset:4px}
-#nearby,#faq{scroll-margin-top:72px}
-.intro h1{font-size:clamp(38px,5.4cqi,70px);max-width:none}
-.intro .lead{max-width:38em}
-.phead h1{font-size:clamp(34px,4.8cqi,62px);max-width:18ch}
-.head h2{font-size:clamp(28px,3.6cqi,46px)}
-.split h2{font-size:clamp(26px,3.2cqi,40px)}
-.contact h2{font-size:clamp(32px,4.4cqi,56px)}
-.gwrap{display:grid;gap:16px}
-@container site (min-width:820px){.gwrap{grid-template-columns:minmax(260px,340px) 1fr;align-items:stretch}.gwrap .gbox{max-width:none;align-content:center}}
-@container site (max-width:819px){.gwrap{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:10px;align-items:stretch}
-  .gwrap .gbox{max-width:none;justify-self:stretch;padding:14px;gap:10px;align-content:center}
-  .gwrap .gbox .g{font-size:11px}.gwrap .gbox .score{flex-wrap:wrap;gap:4px 8px}.gwrap .gbox .score b{font-size:40px}.gwrap .gbox .stars{font-size:15px}
-  .gwrap .gbox .row .btn{flex:1 1 100%;padding:9px 6px;font-size:13px;justify-content:center;text-align:center}
-  .gwrap .gmap,.gwrap .gmap iframe{min-height:250px}}
-.gmap{border:1px solid var(--line);border-radius:10px;overflow:hidden;min-height:340px;background:#fff}
-.gmap iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
-#sv-body{position:absolute;inset:0;overflow:hidden}
-#sv-body>img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.sv-bg{position:absolute;inset:-30px;background-size:cover;background-position:center;filter:blur(24px) saturate(1.15);opacity:.9}
-.ig{margin:6px 0 0;color:var(--muted);font-size:16px}
-.os img{aspect-ratio:4/5}
-.os img[src$="m-deck.jpg"]{object-position:64% center}
-.os img[src$="p-pool2.jpg"]{object-position:42% center}
-.also{background:var(--creek);color:#fff;border-radius:10px;padding:clamp(20px,3cqi,32px);gap:16px}
-.also-h{font:800 clamp(22px,2.6cqi,30px)/1.1 var(--display);letter-spacing:-.02em;margin:0;color:#fff}
-.also .svc{gap:10px}
-.also .svc li{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.35);color:#fff;font:600 clamp(15px,1.7cqi,18px)/1.2 var(--display);padding:11px 16px 11px 14px;display:inline-flex;align-items:center;gap:9px}
-.also .svc li::before{content:"";width:8px;height:8px;border-radius:50%;background:#F2A7C8;flex:none}
-.ways{grid-template-columns:repeat(auto-fit,minmax(270px,1fr))!important}
-.ways .v{font-size:15px;overflow-wrap:normal;word-break:normal}
-@container site (max-width:420px){.ways .v{font-size:13.5px}}.quad{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@container site (min-width:820px){.quad{grid-template-columns:repeat(4,1fr)}}
-.quad figure{margin:0}
-.quad img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px;cursor:zoom-in}
-.mosaic-hero.h6{grid-template-columns:1fr 1fr;height:auto}
-.mosaic-hero.h6 figure{aspect-ratio:3/4}
-.mosaic-hero.h6 .a{grid-column:1/-1}
-.mosaic-hero.h6 .w{grid-column:1/-1;aspect-ratio:3/2}
-@container site (min-width:760px){
-  .mosaic-hero.h6{grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr) minmax(0,1fr);height:auto;aspect-ratio:3/2}
-  .mosaic-hero.h6 figure{aspect-ratio:auto}
-  .mosaic-hero.h6 .a{grid-column:1;grid-row:1/3}
-  .mosaic-hero.h6 .w{grid-column:2/4;aspect-ratio:auto}
-}
-.sheets{display:grid;gap:14px}
-.sheets img{width:100%;height:auto;border-radius:6px;cursor:zoom-in;border:1px solid var(--line)}
-.pick{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
-.pick figure{margin:0;position:relative}
-.pick img{width:100%;aspect-ratio:3/4;object-fit:contain;background:var(--panel);border-radius:6px;cursor:zoom-in}
-.pick b{position:absolute;left:6px;top:6px;background:var(--ink);color:#fff;font:800 14px var(--display);border-radius:999px;min-width:28px;height:28px;display:grid;place-items:center;padding:0 7px}
-[data-page="home"] .onsite{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;overscroll-behavior-x:contain}
-[data-page="home"] .onsite::-webkit-scrollbar{display:none}
-[data-page="home"] .onsite .os{flex:none;width:clamp(230px,27cqi,330px);scroll-snap-align:start}
-.car.cards-car .car-btn{top:36%}
-@container site (max-width:759px){
-  [data-page="home"] .cards{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
-  [data-page="home"] .cards::-webkit-scrollbar{display:none}
-  [data-page="home"] .cards .card{flex:none;width:82%;scroll-snap-align:start}
-}
-.mosaic-hero figcaption,.ph-tag{left:12px;bottom:10px;background:none;padding:0;border-radius:0;color:#fff;font:500 13px/1.2 var(--display);letter-spacing:.01em;text-transform:none;text-shadow:0 1px 2px rgba(0,0,0,.65),0 0 14px rgba(0,0,0,.45)}
-.pimg .ph-tag{left:calc(var(--g) + 12px)}
-.swipe{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:6px}
-.swipe::-webkit-scrollbar{display:none}
-.card .swipe img{flex:none;width:100%;aspect-ratio:4/3;object-fit:cover;scroll-snap-align:start;border-radius:0;cursor:zoom-in}
-.swipe-wrap{position:relative}
-.swipe-wrap .car-btn{width:34px;height:34px;font-size:15px}
-.swipe-wrap .car-btn.prev{left:8px}.swipe-wrap .car-btn.next{right:8px}
-.swipe-count{position:absolute;right:10px;bottom:9px;color:#fff;font:500 12px var(--mono);text-shadow:0 1px 2px rgba(0,0,0,.7),0 0 12px rgba(0,0,0,.45);pointer-events:none}
-
-@container site (min-width:760px){.gallery.g3{grid-template-columns:repeat(3,1fr)}}
-.gallery.g3.land img{aspect-ratio:4/3}
-.gallery.g3.port img{aspect-ratio:4/5}
 @container site (min-width:820px){.quad.q3{grid-template-columns:repeat(3,1fr)}}
 .car{position:relative}
 .car-track{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;border-radius:6px;overscroll-behavior-x:contain}
@@ -473,6 +337,12 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 .sv-cap span{font:400 16px/1.35 var(--body)}
 .sv-zone{position:absolute;top:60px;bottom:0;z-index:2;background:none;border:0;cursor:pointer}
 .sv-zone.l{left:0;width:35%}.sv-zone.r{right:0;width:65%}
+/* photoshoot photos are 3:2 landscape: frames match them so nothing is cropped or zoomed */
+.card img,.card .swipe img,.split img,.pair img,.quad img,.quad.q3 img,.gallery img,.gallery.g3.land img,.os img,.os-pool1 img,.os-pool2 img,.os-gym img,.os-marina img,.os-garden img{aspect-ratio:3/2}
+@container site (max-width:819px){.os-pool1 img,.os-pool2 img,.os-gym img{aspect-ratio:3/2}}
+.gallery.g3.port img{aspect-ratio:4/5}
+.pimg img{height:auto;aspect-ratio:3/2}
+.duo img{aspect-ratio:3/4}.duo .wide img{aspect-ratio:16/9}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -530,15 +400,14 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
     <section class="wrap">
       <div class="car"><div class="car-track" id="car-track">
           <figure><img src="img/m27-m.jpg" data-full="img/m27.jpg" fetchpriority="high" alt="The lawn table at the top of the garden, looking across Tudor Creek" width="1600" height="1067"><span class="ph-tag">Tudor Creek, from the garden</span></figure>
-          <figure><img src="img/m1-m.jpg" data-full="img/m1.jpg" alt="The wooden jetty running out into the creek, with a yacht moored" width="1600" height="1067"><span class="ph-tag">The jetty</span></figure>
+          <figure><img src="img/m26-m.jpg" data-full="img/m26.jpg" alt="The jetty and pontoon from the air, with a yacht moored" width="1600" height="900"><span class="ph-tag">The jetty, from the air</span></figure>
           <figure><img src="img/m19-m.jpg" data-full="img/m19.jpg" alt="Bedroom with a four-poster bed, opening onto a balcony over the creek" width="1600" height="1067"><span class="ph-tag">Inside · bedroom with a creek view</span></figure>
-          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/m3-m.jpg" data-full="img/m3.jpg" alt="The gardens and residences seen from above the beach" width="1600" height="900"><span class="ph-tag">From above</span></figure>
-          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/m52-m.jpg" data-full="img/m52.jpg" alt="A white table on a deck right over the water" width="1600" height="1067"><span class="ph-tag">A deck by the water</span></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/m51-m.jpg" data-full="img/m51.jpg" alt="A white table and chairs on a deck right over the water" width="1600" height="1067"><span class="ph-tag">A deck by the water</span></figure>
           <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/m36-m.jpg" data-full="img/m36.jpg" alt="The terrace pool under a frangipani, with loungers and a white table" width="1600" height="1067"><span class="ph-tag">Terrace pool</span></figure>
           <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/m57-m.jpg" data-full="img/m57.jpg" alt="A garden path between crotons and ginger lilies" width="1600" height="1067"><span class="ph-tag">The gardens</span></figure>
           <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/m64-m.jpg" data-full="img/m64.jpg" alt="Loungers on the lawn, with the creek beyond" width="1600" height="1067"><span class="ph-tag">The lawn</span></figure>
           <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/m21-m.jpg" data-full="img/m21.jpg" alt="A balcony with a table and chairs, looking through palms to the creek" width="1600" height="1067"><span class="ph-tag">A balcony over the creek</span></figure>
-          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/m26-m.jpg" data-full="img/m26.jpg" alt="The jetty and pontoon from the air, with a yacht moored" width="1600" height="900"><span class="ph-tag">The jetty, from the air</span></figure>
+          <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/m23-m.jpg" data-full="img/m23.jpg" alt="Dining table and sitting area in a bright living room" width="1600" height="1031"><span class="ph-tag">Inside · dining and sitting room</span></figure>
           <figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="img/m8-m.jpg" data-full="img/m8.jpg" alt="The garden pool from above, surrounded by palms" width="1600" height="900"><span class="ph-tag">Garden pool, from above</span></figure>
         </div><button type="button" class="car-btn prev" id="car-prev" aria-label="Previous photos">&#8592;</button><button type="button" class="car-btn next" id="car-next" aria-label="More photos">&#8594;</button></div>
     </section>
@@ -561,7 +430,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
           <a class="more" href="apartments/">All the details</a>
         </div>
         <div class="cards">
-          <article class="card"><div class="ph"><img src="img/m16-s.jpg" data-full="img/m16.jpg" alt="Living room with sofas, a coffee table and a rug"></div>
+          <article class="card"><div class="ph"><img src="img/a-glass.jpg" alt="Glass-walled living room up among the trees"></div>
             <div class="size">Studio &amp; 1 bed</div>
             <h3>Light and easy</h3>
             <p>For one person or a couple. Garden right outside.</p>
@@ -573,7 +442,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
             <p>A veranda or a creek view, depending on the flat.</p>
             <a class="more wa" data-msg="Hi, I'd like to check availability for a two-bedroom." href="#" target="_blank" rel="noopener">Check availability</a>
           </article>
-          <article class="card"><div class="ph"><img src="img/m13-s.jpg" data-full="img/m13.jpg" alt="Living and dining room with a long table, opening onto a veranda"></div>
+          <article class="card"><div class="ph"><img src="img/i-living5.jpg" alt="Living room with sliding doors open to a veranda in the trees"></div>
             <div class="size">3 bed · only one</div>
             <h3>The big one</h3>
             <p>Our most spacious flat, with its own outdoor space.</p>
@@ -590,11 +459,11 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
           <a class="more" href="amenities/">All amenities</a>
         </div>
         <div class="onsite">
-          <figure class="os"><div class="ph"><img src="img/z-pool-s.jpg" data-full="img/z-pool.jpg" alt="The garden pool in the sun, lined with palms" style="object-position:center 72%"><span class="ph-tag">Pool 1</span></div><h3>The garden pool</h3><p>Long enough for proper lengths, under the palms.</p></figure>
+          <figure class="os"><div class="ph"><img src="img/p-pool1-s.jpg" data-full="img/p-pool1.jpg" alt="The garden pool in the sun, lined with palms"><span class="ph-tag">Pool 1</span></div><h3>The garden pool</h3><p>Long enough for proper lengths, under the palms.</p></figure>
           <figure class="os"><div class="ph"><img src="img/m38-s.jpg" data-full="img/m38.jpg" alt="The terrace pool, with a white table in the shade"><span class="ph-tag">Pool 2</span></div><h3>The terrace pool</h3><p>Tables, loungers and frangipani shade.</p></figure>
           <figure class="os"><div class="ph"><img src="img/m46-s.jpg" data-full="img/m46.jpg" alt="Residents' gym with spin bikes and a punch bag, open to the garden" width="1600" height="1067"><span class="ph-tag">Gym</span></div><h3>The residents' gym</h3><p>Bikes, cardio and weights, open to the garden.</p></figure>
           <figure class="os"><div class="ph"><img src="img/m74-s.jpg" data-full="img/m74.jpg" alt="Steps down to the wooden jetty, leading out into the creek"><span class="ph-tag">Marina</span></div><h3>The jetty and marina</h3><p>Pontoon moorings up to 30 ft, at the bottom of the garden.</p></figure>
-          <figure class="os"><div class="ph"><img src="img/m51-s.jpg" data-full="img/m51.jpg" alt="A white table on a deck at the water's edge"><span class="ph-tag">Deck</span></div><h3>Decks by the water</h3><p>Several places to sit, right by the creek.</p></figure>
+          <figure class="os"><div class="ph"><img src="img/m76-s.jpg" data-full="img/m76.jpg" alt="A terrace with a white table and a bench among the trees, above the creek"><span class="ph-tag">Deck</span></div><h3>Decks by the water</h3><p>Several places to sit, right by the creek.</p></figure>
           <figure class="os"><div class="ph"><img src="img/m59-s.jpg" data-full="img/m59.jpg" alt="Lawn and palms in the garden, with the creek behind"><span class="ph-tag">Gardens</span></div><h3>The gardens</h3><p>Decades of palms, frangipani and bougainvillea.</p></figure>
           <figure class="os"><div class="ph"><img src="img/parking-s.jpg" data-full="img/parking.jpg" alt="The drive and covered parking under bougainvillea"><span class="ph-tag">Parking</span></div><h3>Covered parking</h3><p>Plenty of space, inside the gates.</p></figure>
           <figure class="os"><div class="ph"><img src="img/s-gate2-s.jpg" data-full="img/s-gate2.jpg" alt="The entrance gate, surrounded by greenery" style="object-position:center 70%"><span class="ph-tag">Gate</span></div><h3>The gate</h3><p>One entrance, guarded round the clock.</p></figure>
@@ -618,7 +487,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
           <div class="lbl">More photos</div>
           <div class="hl" role="list" aria-label="Photo stories">
             <button type="button" role="listitem" data-story="apartments"><span class="ring"><img src="img/a-sunliving.jpg" alt=""></span>Apartments</button>
-            <button type="button" role="listitem" data-story="pools"><span class="ring"><img src="img/m34-s.jpg" data-full="img/m34.jpg" alt=""></span>Pools &amp; gym</button>
+            <button type="button" role="listitem" data-story="pools"><span class="ring"><img src="img/m39-s.jpg" data-full="img/m39.jpg" alt=""></span>Pools &amp; gym</button>
             <button type="button" role="listitem" data-story="gardens"><span class="ring"><img src="img/m32-s.jpg" data-full="img/m32.jpg" alt=""></span>Gardens</button>
             <button type="button" role="listitem" data-story="marina"><span class="ring"><img src="img/m75-s.jpg" data-full="img/m75.jpg" alt=""></span>Marina</button>
           </div>
@@ -852,9 +721,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
   /* stories */
   var S = {
     apartments:{name:"Apartments", slides:[
-      {img:"m16.jpg", t:"Living room", c:"Sofas, a fan overhead and the veranda next door."},
-      {img:"m14.jpg", t:"Living and dining", c:"One long room, open to the garden."},
-      {img:"m23.jpg", t:"Dining table", c:"Room for six."},
+      {img:"m23.jpg", t:"Living and dining", c:"Room for six at the table."},
       {img:"m22.jpg", t:"Kitchen", c:"Equipped and ready to cook in."},
       {img:"m10.jpg", t:"Bedroom", c:"Twin beds and a wall of windows."},
       {img:"m19.jpg", t:"Bedroom", c:"Four-poster, with the creek outside."},
@@ -887,7 +754,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
       {img:"m74.jpg", t:"The jetty", c:"The best seat on the creek, boat or no boat."},
       {img:"m26.jpg", t:"Pontoon moorings", c:"Boats up to 30 ft."},
       {img:"m15.jpg", t:"From above", c:"The jetty and pontoon on a clear day."},
-      {img:"m52.jpg", t:"Deck over the water", c:"Right on the creek."},
+      {img:"m51.jpg", t:"Deck over the water", c:"Right on the creek."},
       {img:"m77.jpg", t:"A table in the shade", c:"Looking out over the jetty."}
     ]}
   };
