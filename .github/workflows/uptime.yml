@@ -1,0 +1,49 @@
+# Checks the live site every 30 minutes. If a page is down, opens a GitHub issue
+# (GitHub emails the account owner); when the site is back, closes it again.
+name: Website uptime check
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check pages
+        id: check
+        run: |
+          down=""
+          for path in "" "apartments/" "amenities/" "marina/" "location/" "contact/"; do
+            ok=0
+            for try in 1 2 3; do
+              code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 "https://www.mackenziemombasa.com/$path" || echo 000)
+              if [ "$code" = "200" ]; then ok=1; break; fi
+              sleep 20
+            done
+            if [ "$ok" = "0" ]; then down="$down /$path (HTTP $code)"; fi
+          done
+          echo "down=$down" >> "$GITHUB_OUTPUT"
+
+      - name: Open or close the alert issue
+        uses: actions/github-script@v7
+        env:
+          DOWN: ${{ steps.check.outputs.down }}
+        with:
+          script: |
+            const title = "WEBSITE DOWN: mackenziemombasa.com";
+            const { data: open } = await github.rest.issues.listForRepo({ ...context.repo, state: "open", labels: "uptime" });
+            const down = process.env.DOWN.trim();
+            if (down && open.length === 0) {
+              await github.rest.issues.create({ ...context.repo, title, labels: ["uptime"],
+                body: `The website is not loading.\n\nPages failing: ${down}\n\nChecked ${new Date().toUTCString()}. This issue closes itself when the site is back.` });
+            } else if (!down && open.length > 0) {
+              for (const i of open) {
+                await github.rest.issues.createComment({ ...context.repo, issue_number: i.number, body: `Back up at ${new Date().toUTCString()}.` });
+                await github.rest.issues.update({ ...context.repo, issue_number: i.number, state: "closed" });
+              }
+            }
