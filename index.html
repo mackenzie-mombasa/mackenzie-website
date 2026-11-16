@@ -559,6 +559,15 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
 .quotes blockquote{margin:0 0 12px;font-family:"Source Serif 4",Georgia,serif;font-size:19px;line-height:1.4;color:var(--ink)}
 .quotes figcaption{font:500 12px/1.3 "IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 @container site (max-width:760px){.quotes{grid-template-columns:1fr;gap:10px}.quotes blockquote{font-size:17px}}
+.ig-sec{padding-top:0}
+.ig-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.ig-head h2{margin:4px 0 0}
+.ig-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.ig-grid a{position:relative;display:block;border-radius:8px;overflow:hidden;aspect-ratio:4/5;background:var(--panel)}
+.ig-grid img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.ig-grid a:hover img{transform:scale(1.04)}
+.ig-grid i{position:absolute;top:8px;right:8px;color:#fff;font-style:normal;font-size:14px;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+@container site (max-width:760px){.ig-grid{grid-template-columns:repeat(3,1fr);gap:6px}}
 </style>
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -699,14 +708,15 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
         </div>
 
         <div class="more-photos">
-          <div class="lbl">More photos</div>
-          <div class="hl" role="list" aria-label="Photo stories">
-            <button type="button" role="listitem" data-story="apartments"><span class="ring"><img src="img/m10-s.jpg" alt=""></span>Apartments</button>
-            <button type="button" role="listitem" data-story="pools"><span class="ring"><img src="img/m39-s.jpg" data-full="img/m39.jpg" alt=""></span>Pools &amp; gym</button>
-            <button type="button" role="listitem" data-story="gardens"><span class="ring"><img src="img/m32-s.jpg" data-full="img/m32.jpg" alt=""></span>Gardens</button>
-            <button type="button" role="listitem" data-story="marina"><span class="ring"><img src="img/m75-s.jpg" data-full="img/m75.jpg" alt=""></span>Marina</button>
+          <div class="ig-head"><div><div class="lbl">On Instagram</div><h2>Latest from the creek</h2></div><a class="btn" href="https://www.instagram.com/mackenzieapartmentsmombasa/" target="_blank" rel="noopener">Follow @mackenzieapartmentsmombasa</a></div>
+          <div class="ig-grid">
+            <a href="https://www.instagram.com/mackenzieapartmentsmombasa/" target="_blank" rel="noopener"><img src="img/ig/ig1.jpg" alt="Loungers on the lawn above the creek" loading="lazy" width="480" height="600"></a>
+            <a href="https://www.instagram.com/mackenzieapartmentsmombasa/" target="_blank" rel="noopener"><img src="img/ig/ig2.jpg" alt="Video: the deck by the water" loading="lazy" width="480" height="600"><i aria-hidden="true">&#9654;</i></a>
+            <a href="https://www.instagram.com/mackenzieapartmentsmombasa/" target="_blank" rel="noopener"><img src="img/ig/ig3.jpg" alt="A day at Mackenzie" loading="lazy" width="480" height="600"></a>
+            <a href="https://www.instagram.com/mackenzieapartmentsmombasa/" target="_blank" rel="noopener"><img src="img/ig/ig4.jpg" alt="The veranda looking out to the creek" loading="lazy" width="480" height="600"></a>
+            <a href="https://www.instagram.com/mackenzieapartmentsmombasa/" target="_blank" rel="noopener"><img src="img/ig/ig5.jpg" alt="Video: into the gardens" loading="lazy" width="480" height="600"><i aria-hidden="true">&#9654;</i></a>
+            <a href="https://www.instagram.com/mackenzieapartmentsmombasa/" target="_blank" rel="noopener"><img src="img/ig/ig6.jpg" alt="Gated and looked after" loading="lazy" width="480" height="600"></a>
           </div>
-          <p class="ig">More on Instagram: <a class="inl" href="https://www.instagram.com/mackenzieapartmentsmombasa/" target="_blank" rel="noopener">follow @mackenzieapartmentsmombasa</a></p>
         </div>
       </div>
     </section>
@@ -757,6 +767,7 @@ footer.ft .wrap{padding-block:22px;display:flex;flex-wrap:wrap;gap:8px 24px;just
         </div>
       </div>
     </section>
+
   </div>
   </main>
 
