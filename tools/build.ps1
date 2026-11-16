@@ -80,3 +80,12 @@ $ai = "GPTBot","OAI-SearchBot","ChatGPT-User","ClaudeBot","Claude-SearchBot","Cl
 $aiRules = ($ai | ForEach-Object { "User-agent: $_`nAllow: /`n" }) -join "`n"
 [IO.File]::WriteAllText("$root\robots.txt","# AI assistants and search engines are welcome to read this site.`n# Summary for AI tools: $site/llms.txt`n`nUser-agent: *`nAllow: /`nDisallow: /tools/`n`n$aiRules`nSitemap: $site/sitemap.xml`n",$utf8)
 "built: gardens redirect, 404, favicon, sitemap, robots"
+
+# safety check: stop if any page has garbled characters (mojibake such as stars shown as A-circumflex sequences) or a stray byte-order mark
+$bad = @()
+foreach($f in (Get-ChildItem $root -Recurse -Include index.html,404.html,llms.txt,robots.txt | Where-Object { $_.FullName -notmatch '\\_preview|\\node_modules' })){
+  $txt = [IO.File]::ReadAllText($f.FullName,[Text.Encoding]::UTF8)
+  if($txt -match '\u00E2[\u20AC\u02DC\u2020\u201E\u0080-\u00BF]|[\u00C2\u00C3][\u0080-\u00BF\u2018-\u203A\u0152\u0160\u017D\u0178\u02C6]|\uFFFD' -or ([IO.File]::ReadAllBytes($f.FullName)[0] -eq 0xEF)){ $bad += $f.FullName.Replace($root,'') }
+}
+if($bad.Count){ throw "Garbled characters found in: $($bad -join ', '). Not safe to publish." }
+"check: no garbled characters"
