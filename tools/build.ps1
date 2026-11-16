@@ -38,7 +38,7 @@ foreach($pg in $pages){
   # public pages are open to search engines (draft.html keeps its noindex)
   $html = [regex]::Replace($html,'<meta name="robots" content="noindex, nofollow">\r?\n?','')
   $html = $html.Replace('href="fonts/fonts.css"','href="'+$p+'fonts/fonts.css"')
-  $html = $html.Replace('</head>','<link rel="icon" href="/favicon.ico" sizes="48x48">'+"`n"+'<link rel="icon" href="/favicon.svg" type="image/svg+xml">'+"`n"+'<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">'+"`n"+'<link rel="apple-touch-icon" href="/apple-touch-icon.png">'+"`n"+'<style>body{background:var(--paper)}</style>'+"`n"+'</head>')
+  $html = $html.Replace('</head>','<link rel="icon" href="/favicon.ico" sizes="48x48">'+"`n"+'<link rel="icon" href="/favicon.svg" type="image/svg+xml">'+"`n"+'<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">'+"`n"+'<link rel="apple-touch-icon" href="/apple-touch-icon.png">'+"`n"+'<style>body{background:var(--paper)}</style>'+"`n"+'<script defer src="/_vercel/insights/script.js"></script>'+"`n"+'</head>')
 
   # remove the review tools
   $a = $html.IndexOf('<div class="draftbar">'); $b = $html.IndexOf('<div class="stage"')
@@ -76,5 +76,7 @@ New-Item -ItemType Directory -Force "$root\gardens" | Out-Null
 $today = (Get-Date).ToString("yyyy-MM-dd")
 $urls = ($pages | ForEach-Object { "  <url><loc>$site/$($_.dir)</loc><lastmod>$today</lastmod></url>" }) -join "`n"
 [IO.File]::WriteAllText("$root\sitemap.xml","<?xml version=`"1.0`" encoding=`"UTF-8`"?>`n<urlset xmlns=`"http://www.sitemaps.org/schemas/sitemap/0.9`">`n$urls`n</urlset>`n",$utf8)
-[IO.File]::WriteAllText("$root\robots.txt","User-agent: *`nAllow: /`nDisallow: /tools/`n`nSitemap: $site/sitemap.xml`n",$utf8)
+$ai = "GPTBot","OAI-SearchBot","ChatGPT-User","ClaudeBot","Claude-SearchBot","Claude-User","PerplexityBot","Perplexity-User","Google-Extended","Applebot","Applebot-Extended","Bingbot","DuckAssistBot","meta-externalagent","MistralAI-User"
+$aiRules = ($ai | ForEach-Object { "User-agent: $_`nAllow: /`n" }) -join "`n"
+[IO.File]::WriteAllText("$root\robots.txt","# AI assistants and search engines are welcome to read this site.`n# Summary for AI tools: $site/llms.txt`n`nUser-agent: *`nAllow: /`nDisallow: /tools/`n`n$aiRules`nSitemap: $site/sitemap.xml`n",$utf8)
 "built: gardens redirect, 404, favicon, sitemap, robots"
